@@ -4,59 +4,138 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Investigating the resulting gene lists</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://cdn.rawgit.com/benfred/venn.js/master/venn.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script> -->
 </head>
 
 <body>
+    <div id="panel" class="panelmask hidden">
+        <div class="panel-content"></div>
+    </div>
 
     <div class="file-uploader">
-        <label for="file1">
-            <input id="file1" type="text" placeholder="name, e.g. B vs A" />
-            <div id="filePicker1" class="webuploader">
-                choose a csv
+        <div>
+            <label for="file1">
+                <input id="file1" type="text" placeholder="name, e.g. B vs A" />
+                <div id="filePicker1" class="webuploader">
+                    choose a csv
+                </div>
+                <div class="clear-file">clear</div>
+            </label>
+            <div class="dataFilter-paras">
+                <div>
+                    <input type="checkbox" id="reverse_fc1" name="reverse_fc1" checked>
+                    <label for="reverse_fc1">reverse log2 Fold Change</label>
+                </div>
+                <div>
+                    <input type="radio" id="regulation1_down" name="regulation1" value="down" checked>
+                    <label for="regulation1_down">down-regulation</label><br>
+                    <input type="radio" id="regulation1_up" name="regulation1" value="up">
+                    <label for="regulation1_up">up-regulation</label><br>
+                </div>
             </div>
-            <input type="checkbox" id="reverse_fc1" name="reverse_fc1" checked>
-            <label for="reverse_fc1">reverse log2FoldChange</label>
-        </label>
-        <label for="file2">
-            <input id="file2" type="text" placeholder="name, e.g. C vs A" />
-            <div id="filePicker2" class="webuploader">
-                choose a csv
-            </div>
-            <input type="checkbox" id="reverse_fc2" name="reverse_fc2" checked>
-            <label for="reverse_fc2">reverse log2FoldChange</label>
-        </label>
-        <label for="file3">
-            <input id="file3" type="text" placeholder="name, e.g. D vs A" />
+        </div>
+        <div>
+            <label for="file2">
+                <input id="file2" type="text" placeholder="name, e.g. B vs A" />
+                <div id="filePicker2" class="webuploader">
+                    choose a csv
+                </div>
+                <div class="clear-file">clear</div>
+            </label>
+            <div class="dataFilter-paras">
+                <div>
 
-            <div id="filePicker3" class="webuploader">
-                choose a csv
+                    <input type="checkbox" id="reverse_fc2" name="reverse_fc2" checked>
+                    <label for="reverse_fc2">reverse log2 Fold Change</label>
+                </div>
+                <div>
+                    <input type="radio" id="regulation2_down" name="regulation2" value="down" checked>
+                    <label for="regulation2_down">down-regulation</label><br>
+                    <input type="radio" id="regulation2_up" name="regulation2" value="up">
+                    <label for="regulation2_up">up-regulation</label><br>
+                </div>
             </div>
-            <input type="checkbox" id="reverse_fc3" name="reverse_fc3" checked>
-            <label for="reverse_fc3">reverse log2FoldChange</label>
-        </label>
-        <label for="file4">
-            <input id="file4" type="text" placeholder="name, e.g. D vs B" />
-            <div id="filePicker4" class="webuploader">
-                choose a csv
-            </div>
-            <input type="checkbox" id="reverse_fc4" name="reverse_fc4" checked>
-            <label for="reverse_fc4">reverse log2FoldChange</label>
-        </label>
+        </div>
+        <div>
+            <label for="file3">
+                <input id="file3" type="text" placeholder="name, e.g. B vs A" />
+                <div id="filePicker3" class="webuploader">
+                    choose a csv
+                </div>
+                <div class="clear-file">clear</div>
+            </label>
+            <div class="dataFilter-paras">
+                <div>
 
+                    <input type="checkbox" id="reverse_fc3" name="reverse_fc3" checked>
+                    <label for="reverse_fc3">reverse log2 Fold Change</label>
+                </div>
+                <div>
+                    <input type="radio" id="regulation3_down" name="regulation3" value="down" checked>
+                    <label for="regulation3_down">down-regulation</label><br>
+                    <input type="radio" id="regulation3_up" name="regulation3" value="up">
+                    <label for="regulation3_up">up-regulation</label><br>
+                </div>
+            </div>
+        </div>
+        <div>
+            <label for="file4">
+                <input id="file4" type="text" placeholder="name, e.g. B vs A" />
+                <div id="filePicker4" class="webuploader">
+                    choose a csv
+                </div>
+                <div class="clear-file">clear</div>
+            </label>
+            <div class="dataFilter-paras">
+                <div>
+
+                    <input type="checkbox" id="reverse_fc4" name="reverse_fc4" checked>
+                    <label for="reverse_fc4">reverse log2 Fold Change</label>
+                </div>
+                <div>
+                    <input type="radio" id="regulation4_down" name="regulation4" value="down" checked>
+                    <label for="regulation4_down">down-regulation</label><br>
+                    <input type="radio" id="regulation4_up" name="regulation4" value="up">
+                    <label for="regulation4_up">up-regulation</label><br>
+                </div>
+            </div>
+        </div>
+        <div>
+            <label for="file5">
+                <input id="file5" type="text" placeholder="name, e.g. B vs A" />
+                <div id="filePicker5" class="webuploader">
+                    choose a csv
+                </div>
+                <div class="clear-file">clear</div>
+            </label>
+            <div class="dataFilter-paras">
+                <div>
+
+                    <input type="checkbox" id="reverse_fc5" name="reverse_fc5" checked>
+                    <label for="reverse_fc5">reverse log2 Fold Change</label>
+                </div>
+                <div>
+                    <input type="radio" id="regulation5_down" name="regulation5" value="down" checked>
+                    <label for="regulation5_down">down-regulation</label><br>
+                    <input type="radio" id="regulation5_up" name="regulation5" value="up">
+                    <label for="regulation5_up">up-regulation</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <label for="p_adjust"> filter p.adjust
+                < <input id="p_adjust" type="text" value="0.05" placeholder="0.05 means remove p.adjust value >= 5%" />
+            </label>
+            <button id="createChart">Venn Diagram</button>
+        </div>
     </div>
-    <div class="parameter-settings">
-        <label for="p_adjust"> filter p.adjust
-            < <input id="p_adjust" type="text" value="0.05" placeholder="0.05 means remove p.adjust value >= 5%" />
-        </label>
-        <button id="up-regVisual">Up-regulated</button><button id="down-regVisual">Down-regulated</button>
-        <label id="message"></label>
-    </div>
+
+    <label id="message"></label>
 
     <h3 id="chart-title">Title</h3>
     <div id="container"></div>

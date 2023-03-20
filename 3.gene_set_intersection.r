@@ -77,8 +77,14 @@ ggVennDiagram::ggVennDiagram(list(
 Reduce(intersect, list(
     dose.long.bd.up$X, dose.long.bc.up$X, dose.long.ac.up$X, dose.long.ad.up$X
 ))
-dose.long.a2bcd <- Reduce(intersect, list(
+Reduce(intersect, list(
     dose.long.ab.up$X, dose.long.ac.up$X, dose.long.ad.up$X
+))
+Reduce(intersect, list(
+    dose.long.ab.down$X, dose.long.ac.down$X, dose.long.ad.down$X
+))
+Reduce(intersect, list(
+    dose.long.ab.down$X, dose.long.ad.down$X
 ))
 
 intersect(dose.long.bd.up$X, dose.long.bc.up$X)
