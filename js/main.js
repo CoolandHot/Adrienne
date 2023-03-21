@@ -79,168 +79,66 @@ function intersectList(...arrays) {
     return arrays.reduce((a, b) => a.filter(c => b.includes(c)));
 }
 
-const compute_intersect = (dataset) => {
+/**
+ * This function returns an array of all combinations of `m` elements from `arr`.
+ * The order of the elements in each combination doesn’t matter.
+ * @param {Array} arr - the array.
+ * @param {number} m - The number of elements to combine as a group.
+ * @returns {Array} An array of dictionary objects. {combination: Array(m), indices: Array(m)}
+ *  `combination`, which is an array containing a combination of `m` elements from the input array;
+ *  `indices`, which is an array containing the indices of the elements in that combination.
+ */
 
-    // singleton
-    let data_one = dataset.map(v => ({ sets: [v['name']], size: v['value'].length, records: v['records'] })), data_two = [], data_three = [], data_four = [], data_five = [];
-
-    // intersection of two sets
-    let data_two01 = intersectList(dataset[0]['value'], dataset[1]['value']), data_two02, data_two12, data_two03, data_two13, data_two23;
-    data_two = [
-        {
-            sets: [dataset[0]['name'], dataset[1]['name']],
-            size: data_two01.length,
-            records: data_two01
+function getCombinations(arr, m) {
+    let result = [];
+    let combination = Array(m).fill(0);
+    let indices = Array(m).fill(0);
+    function makeCombinations(arr, m, start, index) {
+        if (index === m) {
+            result.push({ combination: combination.slice(), indices: indices.slice() });
+            return;
         }
-    ];
-
-    // intersection of three/four sets
-    if (dataset.length > 2) {
-        data_two02 = intersectList(dataset[0]['value'], dataset[2]['value']);
-        data_two12 = intersectList(dataset[1]['value'], dataset[2]['value']);
-        data_two = data_two.concat([
-            { sets: [dataset[0]['name'], dataset[2]['name']], size: data_two02.length, records: data_two02 },
-            { sets: [dataset[1]['name'], dataset[2]['name']], size: data_two12.length, records: data_two12 }
-        ])
-        let data_three012 = intersectList(dataset[0]['value'], dataset[1]['value'], dataset[2]['value']);
-        data_three = data_three.concat([
-            {
-                sets: dataset.slice(0, 3).map(v => v['name']),
-                size: data_three012.length,
-                records: data_three012
-            }
-        ])
+        for (let i = start; i <= arr.length - 1 && arr.length - i >= m - index; ++i) {
+            combination[index] = arr[i];
+            indices[index] = i;
+            makeCombinations(arr, m, i + 1, index + 1);
+        }
     }
-    if (dataset.length > 3) {
-        data_two03 = intersectList(dataset[0]['value'], dataset[3]['value']);
-        data_two13 = intersectList(dataset[1]['value'], dataset[3]['value']);
-        data_two23 = intersectList(dataset[2]['value'], dataset[3]['value']);
-        data_two = data_two.concat([
-            { sets: [dataset[0]['name'], dataset[3]['name']], size: data_two03.length, records: data_two03 },
-            { sets: [dataset[1]['name'], dataset[3]['name']], size: data_two13.length, records: data_two13 },
-            { sets: [dataset[2]['name'], dataset[3]['name']], size: data_two23.length, records: data_two23 }
-        ])
-        let data_three013 = intersectList(dataset[0]['value'], dataset[1]['value'], dataset[3]['value']);
-        let data_three023 = intersectList(dataset[0]['value'], dataset[2]['value'], dataset[3]['value']);
-        let data_three123 = intersectList(dataset[1]['value'], dataset[2]['value'], dataset[3]['value']);
-        data_three = data_three.concat([
-            {
-                sets: [0, 1, 3].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_three013.length,
-                records: data_three013
-            },
-            {
-                sets: [0, 2, 3].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_three023.length,
-                records: data_three023
-            },
-            {
-                sets: [1, 2, 3].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_three123.length,
-                records: data_three123
-            },
-        ])
-
-        let data_four0123 = intersectList(dataset[0]['value'], dataset[1]['value'], dataset[2]['value'], dataset[3]['value']);
-        data_four = data_four.concat([
-            {
-                sets: dataset.map(v => v['name']),
-                size: data_four0123.length,
-                records: data_four0123
-            }
-        ])
-    }
-    if (dataset.length > 4) {
-        let data_two04 = intersectList(dataset[0]['value'], dataset[4]['value']);
-        let data_two14 = intersectList(dataset[1]['value'], dataset[4]['value']);
-        let data_two24 = intersectList(dataset[2]['value'], dataset[4]['value']);
-        let data_two34 = intersectList(dataset[3]['value'], dataset[4]['value']);
-        data_two = data_two.concat([
-            { sets: [dataset[0]['name'], dataset[4]['name']], size: data_two04.length, records: data_two04 },
-            { sets: [dataset[1]['name'], dataset[4]['name']], size: data_two14.length, records: data_two14 },
-            { sets: [dataset[2]['name'], dataset[4]['name']], size: data_two24.length, records: data_two24 },
-            { sets: [dataset[3]['name'], dataset[4]['name']], size: data_two34.length, records: data_two34 }
-        ])
-
-        let data_three014 = intersectList(dataset[0]['value'], dataset[1]['value'], dataset[4]['value']);
-        let data_three024 = intersectList(dataset[0]['value'], dataset[2]['value'], dataset[4]['value']);
-        let data_three034 = intersectList(dataset[0]['value'], dataset[3]['value'], dataset[4]['value']);
-        let data_three124 = intersectList(dataset[1]['value'], dataset[2]['value'], dataset[4]['value']);
-        let data_three134 = intersectList(dataset[1]['value'], dataset[3]['value'], dataset[4]['value']);
-        let data_three234 = intersectList(dataset[2]['value'], dataset[3]['value'], dataset[4]['value']);
-        data_three = data_three.concat([
-            {
-                sets: [0, 1, 4].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_three014.length,
-                records: data_three014
-            },
-            {
-                sets: [0, 2, 4].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_three024.length,
-                records: data_three024
-            },
-            {
-                sets: [0, 3, 4].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_three034.length,
-                records: data_three034
-            },
-            {
-                sets: [1, 2, 4].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_three124.length,
-                records: data_three124
-            },
-            {
-                sets: [1, 3, 4].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_three134.length,
-                records: data_three134
-            },
-            {
-                sets: [2, 3, 4].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_three234.length,
-                records: data_three234
-            },
-        ])
-
-        let data_four0124 = intersectList(dataset[0]['value'], dataset[1]['value'], dataset[2]['value'], dataset[4]['value']);
-        let data_four0134 = intersectList(dataset[0]['value'], dataset[1]['value'], dataset[3]['value'], dataset[4]['value']);
-        let data_four0234 = intersectList(dataset[0]['value'], dataset[2]['value'], dataset[3]['value'], dataset[4]['value']);
-        let data_four1234 = intersectList(dataset[1]['value'], dataset[2]['value'], dataset[3]['value'], dataset[4]['value']);
-
-        data_four = data_four.concat([
-            {
-                sets: [0, 1, 2, 4].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_four0124.length,
-                records: data_four0124
-            },
-            {
-                sets: [0, 1, 3, 4].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_four0134.length,
-                records: data_four0134
-            },
-            {
-                sets: [0, 2, 3, 4].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_four0234.length,
-                records: data_four0234
-            },
-            {
-                sets: [1, 2, 3, 4].map(ind => dataset[ind]).map(v => v['name']),
-                size: data_four1234.length,
-                records: data_four1234
-            },
-        ])
-
-        let data_five01234 = intersectList(dataset[0]['value'], dataset[1]['value'], dataset[2]['value'], dataset[3]['value'], dataset[4]['value']);
-        data_five = data_five.concat([
-            {
-                sets: dataset.map(v => v['name']),
-                size: data_five01234.length,
-                records: data_five01234
-            }
-        ])
-
-    }
-    return data_one.concat(data_two).concat(data_three).concat(data_four).concat(data_five)
+    makeCombinations(arr, m, 0, 0);
+    return result;
 }
+
+/**
+ * This function returns an array of all combinations of intersection.
+ * @param {Array} dataset - the data table of records
+ * @returns {Array} An array of dictionary objects. {sets: Array, size: number, records: Array}
+ */
+const compute_intersect = (dataset) => {
+    // one set specially include the records
+    let result = dataset.map(v => ({ sets: [v['name']], size: v['value'].length, records: v['records'] }))
+    // two or more sets for intersections, the records are the intersect gene list, no detailed log2FC nor p.adjust
+    for (let i = 1; i < dataset.length; i++) {
+        let comb_res = getCombinations(dataset, i + 1)
+            .map(v => {
+                let intersect_v = intersectList(...v['combination'].map(x => x['value']))
+                if (intersect_v.length > 0) {
+                    return {
+                        sets: v['combination'].map(x => x['name']),
+                        size: intersect_v.length,
+                        records: intersect_v
+                    }
+
+                }
+            })
+            .filter(x => typeof x != 'undefined')
+
+        if (comb_res.length > 0) {
+            result = result.concat(comb_res)
+        }
+    }
+    return result
+}
+
 
 const plot_update = (dataset) => {
     document.getElementById("chart-title").innerText = dataset.map(v => v['name']).join(" - ");
