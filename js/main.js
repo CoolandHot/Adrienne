@@ -1,12 +1,8 @@
-var file_paras = [
-    { "file": "", "name": "", "reverse": true, "up_regulate": 'down' },
-    { "file": "", "name": "", "reverse": true, "up_regulate": 'down' },
-    { "file": "", "name": "", "reverse": true, "up_regulate": 'down' },
-    { "file": "", "name": "", "reverse": true, "up_regulate": 'down' },
-    { "file": "", "name": "", "reverse": true, "up_regulate": 'down' },
-];
 var p_adjust = 0.05;
 
+const random4chars = () => {
+    return [...Array(4)].map(() => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'[Math.floor(Math.random() * 62)]).join('');
+}
 
 function readCSVFile(file, reverse = true) {
     return new Promise((resolve, reject) => {
@@ -55,8 +51,8 @@ var tooltip = d3.select("body")
 
 const map_csv = () => {
     return new Promise((resolve, reject) => {
-        var myPromises = file_paras
-            .filter(v => v['file'] != "")
+        var myPromises = getInputValues()
+            .filter(v => typeof (v['file']) != 'undefined')
             .map(async v => {
                 let records = await readCSVFile(v['file'], v['reverse']);
                 // only reserve the up/down-regulation
@@ -209,63 +205,87 @@ const plot_update = (dataset) => {
 
 }
 
-
-
 // ===========================================================
-// ***************** file picker listeners ******************
+// **************** set information box control **************
 // ===========================================================
-const filePickers = ['filePicker1', 'filePicker2', 'filePicker3', 'filePicker4', 'filePicker5'];
-for (const picker of filePickers) {
-    document.getElementById(picker).addEventListener('click', () => {
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = '.csv';
-        input.onchange = event => {
-            const file = event.target.files[0];
-            let num = parseInt(picker.replace("filePicker", ""));
-            let input_dom = document.getElementById(`file${num}`);
-            if (input_dom.value == "") {
-                input_dom.value = file.name.replace(".csv", "");
-                input_dom.dispatchEvent(new Event("change"));
-            }
-            file_paras[num - 1]['file'] = file;
-        };
-        input.click();
-    });
+function addBox() {
+    let newNode = document
+        .querySelector('.set-information')
+        .cloneNode(true);
+    // clear all information
+    newNode.querySelector("input[type='file']").value = "";
+    newNode.querySelector("input[type='text']").value = "";
+    newNode.querySelector(".dataFilter-paras input[type='checkbox']").checked = true;
+    let new_radio_group = `regulation_${random4chars()}`;
+    newNode.querySelectorAll(".dataFilter-paras input[type='radio']")
+        .forEach(o => o.name = new_radio_group)
+
+    document
+        .querySelector('.web-gadgets')
+        .appendChild(newNode);
+
+    overwrite_listers();
 }
+
+function removeBox() {
+    let parent_box = document.querySelector('.web-gadgets');
+    if (parent_box.childElementCount > 3) {
+        parent_box.removeChild(parent_box.lastChild);
+    }
+}
+
+
 // ===========================================================
-// *********************** input listeners *******************
+// *********************** listeners *******************
 // ===========================================================
+const overwrite_listers = () => {
 
-document.querySelectorAll('input[type="text"]')
-    .forEach(i => i.addEventListener('change', event => {
-        if (event.target.id == "p_adjust") {
-            p_adjust = parseFloat(document.getElementById("p_adjust").value)
-        }
-        if (event.target.id.includes('file')) { // file name
-            let num = parseInt(event.target.id.replace("file", ""));
-            file_paras[num - 1]["name"] = event.target.value
-        }
-    }))
-document.querySelectorAll('input[type="checkbox"]')
-    .forEach(i => i.addEventListener('change', event => {
-        file_paras[parseInt(event.target.id.replace("reverse_fc", "")) - 1]["reverse"] = event.target.checked;
-    }))
-document.querySelectorAll('input[type="radio"]')
-    .forEach(i => i.addEventListener('change', event => {
-        let num = parseInt(event.target.name.replace("regulation", ""));
-        file_paras[num - 1]["up_regulate"] = document.querySelector(`input[name="${event.target.name}"]:checked`).value;
-    }))
-document.querySelectorAll('.clear-file')
-    .forEach(i => i.addEventListener('click', event => {
-        let parent = event.target.parentNode;
-        let num = parseInt(parent.getAttribute("for").replace("file", ""));
-        parent.querySelector("input").value = "";
-        file_paras[num - 1]["file"] = "";
-        file_paras[num - 1]["name"] = "";
+    // file picker 
+    document.querySelectorAll("input[type='file']")
+        .forEach(dom => {
+            dom.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                let input_dom = event.target
+                    .parentNode
+                    .parentNode
+                    .querySelector('input[type="text"][name="set-name"]');
+                if (input_dom.value == "") {
+                    input_dom.value = file.name.replace(".csv", "");
+                    input_dom.dispatchEvent(new Event("change"));
+                }
+            });
+        })
 
-    }))
+    // clear file picker and input name
+    document.querySelectorAll('.clear-file')
+        .forEach(i => i.addEventListener('click', event => {
+            let parent = event.target.parentNode;
+            parent.querySelectorAll("input")
+                .forEach(input => input.value = "")
+        }))
 
+}
+
+overwrite_listers();
+
+const getInputValues = () => {
+    let results = [];
+    document.querySelectorAll(".set-information")
+        .forEach(one => {
+            let res = {};
+            res['file'] = one.querySelector("input[type='file']").files[0];
+            res['name'] = one.querySelector("input[type='text']").value;
+            res['reverse'] = one.querySelector(".dataFilter-paras input[type='checkbox']").checked;
+            res['up_regulate'] = one.querySelector(".dataFilter-paras input[type='radio']:checked").value;
+            results.push(res)
+        })
+    return results
+}
+
+document.querySelector("#p_adjust")
+    .addEventListener('change', event => {
+        p_adjust = parseFloat(event.target.value)
+    })
 
 
 document.getElementById("panel").addEventListener('click', function (event) {

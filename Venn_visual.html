@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Investigating the resulting gene lists</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdn.rawgit.com/benfred/venn.js/master/venn.js"></script>
+</head>
+
+<body>
+    <div id="panel" class="panelmask hidden">
+        <div class="panel-content"></div>
+    </div>
+
+    <div class="web-gadgets">
+        <div class="global-gadget">
+            <label for="p_adjust"> filter p.adjust
+                < <input id="p_adjust" type="text" value="0.05" placeholder="0.05 means remove p.adjust value >= 5%" />
+            </label>
+
+            <button id="createChart">Venn Diagram</button>
+            <div class="box-control">
+                <span onclick="addBox()">+</span>
+                <span onclick="removeBox()">-</span>
+            </div>
+        </div>
+        <div class="set-information">
+            <div>
+                <input type="text" name="set-name" placeholder="name, e.g. B vs A" />
+                <div class="file-uploader">
+                    <input type="file" accept=".csv">
+                    <span class="file-uploader__button">Choose File</span>
+                </div>
+
+                <div class="clear-file">clear</div>
+            </div>
+            <div class="dataFilter-paras">
+                <div>
+                    <input type="checkbox" name="reverse_fc" checked>
+                    <label>reverse log2 Fold Change</label>
+                </div>
+                <div>
+                    <input type="radio" name="regulation_DhuL" value="down" checked>
+                    <label>down-regulation</label><br>
+                    <input type="radio" name="regulation_DhuL" value="up">
+                    <label>up-regulation</label><br>
+                </div>
+            </div>
+        </div>
+        <div class="set-information">
+            <div>
+                <input type="text" name="set-name" placeholder="name, e.g. B vs A" />
+                <div class="file-uploader">
+                    <input type="file" accept=".csv">
+                    <span class="file-uploader__button">Choose File</span>
+                </div>
+                <div class="clear-file">clear</div>
+            </div>
+            <div class="dataFilter-paras">
+                <div>
+                    <input type="checkbox" name="reverse_fc" checked>
+                    <label>reverse log2 Fold Change</label>
+                </div>
+                <div>
+                    <input type="radio" name="regulation_6AQR" value="down" checked>
+                    <label>down-regulation</label><br>
+                    <input type="radio" name="regulation_6AQR" value="up">
+                    <label>up-regulation</label><br>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <label id="message"></label>
+
+    <h3 id="chart-title">Title</h3>
+    <div id="container"></div>
+
+    <script src='js/main.js'></script>
+</body>
+
+</html>

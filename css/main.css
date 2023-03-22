@@ -1,25 +1,79 @@
-.file-uploader {
+.web-gadgets {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
-  width: 90%;
-  border: 2px dashed #e6e6e6;
+  width: 95%;
+}
+
+.global-gadget {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box-control {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.box-control span {
+  padding: 5px 10px;
+  margin: auto;
+  background-color: #00b077;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer
+}
+
+input[type="text"] {
+  box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.15em;
+  height: 25px;
+  margin: 5px auto;
+}
+
+#createChart {
+  background-color: rgb(32, 158, 255);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  margin: 10px auto;
+}
+
+.set-information {
+  border: 1px dashed #e6e6e6;
   text-align: center;
   padding: 10px;
   margin: 5px auto auto;
 }
 
-.webuploader {
-  text-align: center;
-  width: 90px;
-  color: rgb(255, 255, 255);
+.file-uploader {
+  position: relative;
+  display: inline-block;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+  overflow: hidden;
+}
+
+.file-uploader input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-uploader__button {
+  display: inline-block;
+  padding: 3px 5px;
+  background-color: rgb(32, 158, 255);
+  color: white;
   font-size: 14px;
-  background: rgb(32, 158, 255);
-  border-radius: 3px;
-  line-height: 25px;
-  margin: 5px auto auto;
+  border-radius: 4px;
+  cursor: pointer
 }
 
 .clear-file {
@@ -35,28 +89,11 @@
   margin: 2px auto auto;
 }
 
-input[type="text"] {
-  box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.15em;
-  height: 25px;
-  margin: 5px auto;
-}
 
 #message {
   color: blue;
 }
 
-button {
-  background-color: rgb(32, 158, 255);
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 3px;
-  text-align: center;
-  text-decoration: none;
-  margin: 10px auto;
-}
 
 label {
   font-size: 14px;
