@@ -32,10 +32,6 @@ sample_info <- read.table("meta-data.csv",
     row.names = 1, sep = ",",
     header = TRUE
 ) |>
-    {
-        # remove F group temporary because it is still processing in HTCondor
-        \(x) subset(x, row.names(x) != "p22303.s019_GL261.luc2.BHB5.4day.a_S19")
-    }() |>
     dplyr::mutate(condition = as.factor(condition))
 
 ##################################################
