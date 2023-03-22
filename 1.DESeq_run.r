@@ -55,6 +55,8 @@ dds <- DESeq2::DESeqDataSetFromMatrix(
         # QC
         \(x) x[rowSums(DESeq2::counts(x)) >= 10, ]
     }()
+
+ctrl_sampl <- "A"
 dds$condition <- relevel(dds$condition, ref = ctrl_sampl)
 dds_diff <- DESeq2::DESeq(dds, parallel = TRUE)
 saveRDS(dds_diff, file = "./output/diff_expr_A-J_groups_individual.RDS")
