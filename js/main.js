@@ -215,6 +215,7 @@ function addBox() {
     // clear all information
     newNode.querySelector("input[type='file']").value = "";
     newNode.querySelector("input[type='text']").value = "";
+    newNode.querySelector("span").innerText = "Choose File";
     newNode.querySelector(".dataFilter-paras input[type='checkbox']").checked = true;
     let new_radio_group = `regulation_${random4chars()}`;
     newNode.querySelectorAll(".dataFilter-paras input[type='radio']")
@@ -245,6 +246,7 @@ const overwrite_listers = () => {
         .forEach(dom => {
             dom.addEventListener('change', (event) => {
                 const file = event.target.files[0];
+                // fill in the name in the input
                 let input_dom = event.target
                     .parentNode
                     .parentNode
@@ -253,6 +255,11 @@ const overwrite_listers = () => {
                     input_dom.value = file.name.replace(".csv", "");
                     input_dom.dispatchEvent(new Event("change"));
                 }
+                // change the "Choose File" to the file name
+                let span_dom = event.target
+                    .parentNode
+                    .querySelector('span');
+                span_dom.innerText = file.name.slice(-20)
             });
         })
 
@@ -262,6 +269,7 @@ const overwrite_listers = () => {
             let parent = event.target.parentNode;
             parent.querySelectorAll("input")
                 .forEach(input => input.value = "")
+            parent.querySelector("span").innerText = "Choose File"
         }))
 
 }

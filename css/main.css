@@ -1,11 +1,12 @@
 .web-gadgets {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-gap: 10px;
   width: 95%;
 }
 
-.global-gadget {
+.global-gadget,
+.file-upload-frame {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,6 +99,7 @@ input[type="text"] {
 label {
   font-size: 14px;
   padding: 2px;
+  text-align: center;
 }
 
 /* Venn diagram */
@@ -162,4 +164,30 @@ tr:nth-child(even) {
 th {
   background-color: #4CAF50;
   color: white;
+}
+
+/* responsive */
+@media (max-width: 1050px) {
+  .web-gadgets {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 880px) {
+  .web-gadgets {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 750px) {
+  .web-gadgets {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+  }
+}
+
+@media (max-width: 560px) {
+  .web-gadgets {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

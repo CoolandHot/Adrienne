@@ -18,18 +18,18 @@
 
     <div class="web-gadgets">
         <div class="global-gadget">
-            <label for="p_adjust"> filter p.adjust
-                < <input id="p_adjust" type="text" value="0.05" placeholder="0.05 means remove p.adjust value >= 5%" />
-            </label>
+            <label for="p_adjust"> filter p.adjust < </label>
+                    <input id="p_adjust" type="text" value="0.05"
+                        placeholder="0.05 means remove p.adjust value >= 5%" />
 
-            <button id="createChart">Venn Diagram</button>
-            <div class="box-control">
-                <span onclick="addBox()">+</span>
-                <span onclick="removeBox()">-</span>
-            </div>
+                    <button id="createChart">Venn Diagram</button>
+                    <div class="box-control">
+                        <span onclick="addBox()">+</span>
+                        <span onclick="removeBox()">-</span>
+                    </div>
         </div>
         <div class="set-information">
-            <div>
+            <div class="file-upload-frame">
                 <input type="text" name="set-name" placeholder="name, e.g. B vs A" />
                 <div class="file-uploader">
                     <input type="file" accept=".csv">
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="set-information">
-            <div>
+            <div class="file-upload-frame">
                 <input type="text" name="set-name" placeholder="name, e.g. B vs A" />
                 <div class="file-uploader">
                     <input type="file" accept=".csv">
