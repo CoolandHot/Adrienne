@@ -216,10 +216,20 @@ function addBox() {
     newNode.querySelector("input[type='file']").value = "";
     newNode.querySelector("input[type='text']").value = "";
     newNode.querySelector("span").innerText = "Choose File";
-    newNode.querySelector(".dataFilter-paras input[type='checkbox']").checked = true;
-    let new_radio_group = `regulation_${random4chars()}`;
+    // new random suffixing on names and ids
+    let new_group_suffix = random4chars();
+    // reverse log2 fold change checkbox
+    let checkbox = newNode.querySelector(".dataFilter-paras input[type='checkbox']");
+    checkbox.checked = true;
+    checkbox.id = `reverse_fc_${new_group_suffix}`;
+    checkbox.parentNode.querySelector("label").setAttribute("for", `reverse_fc_${new_group_suffix}`);
+    // up/down-regulation radio groups
     newNode.querySelectorAll(".dataFilter-paras input[type='radio']")
-        .forEach(o => o.name = new_radio_group)
+        .forEach(o => {
+            o.name = `regulation_${new_group_suffix}`;
+            o.id = `${o.value}_regulation_${new_group_suffix}`;
+            o.nextElementSibling.setAttribute("for", `${o.value}_regulation_${new_group_suffix}`)
+        })
 
     document
         .querySelector('.web-gadgets')
