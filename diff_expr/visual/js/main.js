@@ -7,27 +7,26 @@ const random4chars = () => {
 function readCSVFile(file, reverse = true) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
-        reader.onload = event => {
-            const csvData = event.target.result;
-            const rows = csvData.split(/\r?\n/);
-            const headers = rows.shift().replaceAll('"', '').split(',');
-            headers[0] = 'gene'; // the first header is empty
-            const records = rows.map(row => {
-                const values = row
-                    .replaceAll('"', '')
-                    .split(',')
-                const record = {};
-                headers.forEach((header, index) => {
-                    if (reverse & (header == "log2FoldChange" | header == "stat")) {
-                        record[header] = -parseFloat(values[index]);
-                    } else {
-                        record[header] = values[index];
-                    }
-                });
-                return record;
+        reader.onload = () => {
+            const csvData = Papa.parse(reader.result, {
+                header: true,
+                skipEmptyLines: true,
             });
-
-            const filteredRecords = records.filter(record => record['padj'] < p_adjust);
+            let interrogate = document.querySelector(".interrogation-group input[type='radio']:checked").value;
+            var records = csvData.data, filteredRecords, p_adj_str;
+            if (interrogate === "pathway") {
+                p_adj_str = "q-value"
+            }
+            if (interrogate === "gene-set") {
+                p_adj_str = "padj"
+                if (reverse) {
+                    records = records.map(v => {
+                        v['log2FoldChange'] = -parseFloat(v['log2FoldChange'])
+                        return v
+                    })
+                }
+            }
+            filteredRecords = records.filter(record => record[p_adj_str] && record[p_adj_str] < p_adjust);
             resolve(filteredRecords);
         };
         reader.onerror = error => reject(error);
@@ -51,15 +50,22 @@ var tooltip = d3.select("body")
 
 const map_csv = () => {
     return new Promise((resolve, reject) => {
+        let interrogate = document.querySelector(".interrogation-group input[type='radio']:checked").value;
         var myPromises = getInputValues()
             .filter(v => typeof (v['file']) != 'undefined')
             .map(async v => {
                 let records = await readCSVFile(v['file'], v['reverse']);
-                // only reserve the up/down-regulation
-                records = records.filter(record => v['up_regulate'] == 'up' ? record['log2FoldChange'] > 0 : record['log2FoldChange'] < 0);
-                // get the remaining gene list
-                let geneList = records.map(record => record['gene']);
-                return { "name": `${v['name']}(${v['up_regulate']})`, "value": geneList, "records": records }
+                if (interrogate === "gene-set") {
+                    // only reserve the up/down-regulation
+                    records = records.filter(record => v['up_regulate'] == 'up' ? record['log2FoldChange'] > 0 : record['log2FoldChange'] < 0);
+                    // get the remaining gene list
+                    let geneList = records.map(record => record['gene']);
+                    return { "name": `${v['name']}(${v['up_regulate']})`, "value": geneList, "records": records }
+                }
+                if (interrogate === "pathway") {
+                    let pathwayList = records.map(record => record['term']);
+                    return { "name": `${v['name']}`, "value": pathwayList, "records": records }
+                }
             });
         Promise.all(myPromises).then((results) => {
             resolve(results);
@@ -137,7 +143,7 @@ const compute_intersect = (dataset) => {
 
 
 const plot_update = (dataset) => {
-    document.getElementById("chart-title").innerText = dataset.map(v => v['name']).join(" - ");
+    document.getElementById("chart-title").innerText = dataset.map(v => v['name']).join(" * ");
 
     var data = compute_intersect(dataset);
     d3Container.datum(data).call(vennChart);
@@ -155,7 +161,7 @@ const plot_update = (dataset) => {
             venn.sortAreas(d3Container, d);
             // Display a tooltip with the current size
             tooltip.transition().duration(100).style("opacity", .9);
-            tooltip.text(d.size + " genes");
+            tooltip.text(d.size);
             // highlight the current path
             var selection = d3.select(this).transition("tooltip").duration(200);
             selection.select("path")
@@ -172,17 +178,31 @@ const plot_update = (dataset) => {
 
             var records = d.records;
             var tableNames = d.sets, table;
+            var headers;
+            let interrogate = document.querySelector(".interrogation-group input[type='radio']:checked").value;
+            if (interrogate === "gene-set")
+                headers = ['gene', 'log2FoldChange', 'padj']
+            if (interrogate === "pathway")
+                headers = ['term', 'q-value', 'combined_score', 'overlap_genes']
             if (tableNames.length == 1) {
                 table = '<h3>' + tableNames + '</h3>';
-                table += records.length + ' genes<br>';
-                table += '<table><thead><tr><th>gene</th><th>log2FoldChange</th><th>p.adjust</th></tr></thead><tbody>';
+                table += records.length + ' common items<br>';
+                table += '<table><thead><tr>'
+                for (let th of headers) {
+                    table += `<th>${th}</th>`
+                }
+                table += '</tr></thead><tbody>';
                 for (let j = 0; j < records.length; j++) {
-                    table += '<tr>' + `<td>${records[j]['gene']}</td>` + `<td>${records[j]['log2FoldChange']}</td>` + `<td>${records[j]['padj']}</td>` + `</tr>`;
+                    table += '<tr>'
+                    for (let th of headers) {
+                        table += `<td>${records[j][th]}</td>`
+                    }
+                    table += `</tr>`;
                 }
                 table += '</tbody></table>'
             } else {
-                table = '<h3>' + tableNames.join(" - ") + '</h3>';
-                table += records.length + ' genes<br>';
+                table = '<h3>' + tableNames.join(" * ") + '</h3>';
+                table += records.length + ' common items<br>';
                 table += records.join(", ")
             }
             document.querySelector('.panel-content').innerHTML = table;
@@ -220,7 +240,6 @@ function addBox() {
     let new_group_suffix = random4chars();
     // reverse log2 fold change checkbox
     let checkbox = newNode.querySelector(".dataFilter-paras input[type='checkbox']");
-    checkbox.checked = true;
     checkbox.id = `reverse_fc_${new_group_suffix}`;
     checkbox.parentNode.querySelector("label").setAttribute("for", `reverse_fc_${new_group_suffix}`);
     // up/down-regulation radio groups
@@ -282,7 +301,25 @@ const overwrite_listers = () => {
             parent.querySelector("span").innerText = "Choose File"
         }))
 
+
+
 }
+
+// interrogate radio
+document.querySelector(".interrogation-group").addEventListener("click", event => {
+    if (event.target && event.target.matches("input[type='radio']")) {
+        if (event.target.value == 'pathway') {
+            // hide reverse FoldChange & up/down-regulation radio
+            document.querySelectorAll(".dataFilter-paras")
+                .forEach(o => o.style.display = "none")
+        }
+        if (event.target.value == 'gene-set') {
+            // display reverse FoldChange & up/down-regulation radio
+            document.querySelectorAll(".dataFilter-paras")
+                .forEach(o => o.style.display = "")
+        }
+    }
+})
 
 overwrite_listers();
 

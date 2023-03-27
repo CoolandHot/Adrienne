@@ -1,0 +1,287 @@
+{
+    "nodes": [
+        {
+            "id": "Fat digestion and absorption(D_vs_J)",
+            "value": 1,
+            "group": "D_vs_J"
+        },
+        {
+            "id": "Cholesterol metabolism(D_vs_J)",
+            "value": 1,
+            "group": "D_vs_J"
+        },
+        {
+            "id": "Malaria(D_vs_J)",
+            "value": 1,
+            "group": "D_vs_J"
+        },
+        {
+            "id": "Adipocytokine signaling pathway(D_vs_J)",
+            "value": 1,
+            "group": "D_vs_J"
+        },
+        {
+            "id": "ECM-receptor interaction(D_vs_J)",
+            "value": 1,
+            "group": "D_vs_J"
+        },
+        {
+            "id": "PPAR signaling pathway(D_vs_J)",
+            "value": 1,
+            "group": "D_vs_J"
+        },
+        {
+            "id": "Hematopoietic cell lineage(D_vs_J)",
+            "value": 1,
+            "group": "D_vs_J"
+        },
+        {
+            "id": "Insulin resistance(D_vs_J)",
+            "value": 1,
+            "group": "D_vs_J"
+        },
+        {
+            "id": "AMPK signaling pathway(D_vs_J)",
+            "value": 1,
+            "group": "D_vs_J"
+        },
+        {
+            "id": "Phagosome(D_vs_J)",
+            "value": 1,
+            "group": "D_vs_J"
+        }
+    ],
+    "links": [
+        {
+            "source": "Fat digestion and absorption(D_vs_J)",
+            "target": "Cholesterol metabolism(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption(D_vs_J)",
+            "target": "Malaria(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption(D_vs_J)",
+            "target": "Adipocytokine signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption(D_vs_J)",
+            "target": "ECM-receptor interaction(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption(D_vs_J)",
+            "target": "PPAR signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption(D_vs_J)",
+            "target": "Hematopoietic cell lineage(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption(D_vs_J)",
+            "target": "Insulin resistance(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption(D_vs_J)",
+            "target": "AMPK signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption(D_vs_J)",
+            "target": "Phagosome(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism(D_vs_J)",
+            "target": "Malaria(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism(D_vs_J)",
+            "target": "Adipocytokine signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism(D_vs_J)",
+            "target": "ECM-receptor interaction(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism(D_vs_J)",
+            "target": "PPAR signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism(D_vs_J)",
+            "target": "Hematopoietic cell lineage(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism(D_vs_J)",
+            "target": "Insulin resistance(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism(D_vs_J)",
+            "target": "AMPK signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism(D_vs_J)",
+            "target": "Phagosome(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Malaria(D_vs_J)",
+            "target": "Adipocytokine signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Malaria(D_vs_J)",
+            "target": "ECM-receptor interaction(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Malaria(D_vs_J)",
+            "target": "PPAR signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Malaria(D_vs_J)",
+            "target": "Hematopoietic cell lineage(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Malaria(D_vs_J)",
+            "target": "Insulin resistance(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Malaria(D_vs_J)",
+            "target": "AMPK signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Malaria(D_vs_J)",
+            "target": "Phagosome(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway(D_vs_J)",
+            "target": "ECM-receptor interaction(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway(D_vs_J)",
+            "target": "PPAR signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway(D_vs_J)",
+            "target": "Hematopoietic cell lineage(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway(D_vs_J)",
+            "target": "Insulin resistance(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway(D_vs_J)",
+            "target": "AMPK signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway(D_vs_J)",
+            "target": "Phagosome(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction(D_vs_J)",
+            "target": "PPAR signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction(D_vs_J)",
+            "target": "Hematopoietic cell lineage(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction(D_vs_J)",
+            "target": "Insulin resistance(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction(D_vs_J)",
+            "target": "AMPK signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction(D_vs_J)",
+            "target": "Phagosome(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "PPAR signaling pathway(D_vs_J)",
+            "target": "Hematopoietic cell lineage(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "PPAR signaling pathway(D_vs_J)",
+            "target": "Insulin resistance(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "PPAR signaling pathway(D_vs_J)",
+            "target": "AMPK signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "PPAR signaling pathway(D_vs_J)",
+            "target": "Phagosome(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Hematopoietic cell lineage(D_vs_J)",
+            "target": "Insulin resistance(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Hematopoietic cell lineage(D_vs_J)",
+            "target": "AMPK signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Hematopoietic cell lineage(D_vs_J)",
+            "target": "Phagosome(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Insulin resistance(D_vs_J)",
+            "target": "AMPK signaling pathway(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Insulin resistance(D_vs_J)",
+            "target": "Phagosome(D_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "AMPK signaling pathway(D_vs_J)",
+            "target": "Phagosome(D_vs_J)",
+            "value": 1
+        }
+    ],
+    "groups": [
+        {
+            "name": "D_vs_J"
+        }
+    ],
+    "title": "KEGG_2019_Mouse"
+}

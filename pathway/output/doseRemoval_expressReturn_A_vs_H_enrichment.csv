@@ -1,0 +1,2 @@
+index,rank,term,p-value,zscore,combined_score,overlap_genes,q-value,7,8,library
+0,1,ECM-receptor interaction,0.0002094682622131113,29.838,252.75585768449318,"['SV2C', 'TNN', 'COL9A1']",0.006702984390819562,0,0,KEGG2019Mouse

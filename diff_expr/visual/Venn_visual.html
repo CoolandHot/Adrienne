@@ -8,7 +8,8 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://cdn.rawgit.com/benfred/venn.js/master/venn.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/venn.js@0.2.20/build/venn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
 </head>
 
 <body>
@@ -21,6 +22,13 @@
             <label for="p_adjust"> filter p.adjust < </label>
                     <input id="p_adjust" type="text" value="0.05"
                         placeholder="0.05 means remove p.adjust value >= 5%" />
+                    <div class="interrogation-group">
+                        <input type="radio" name="interrogation-group" id="interrogate-pathway" value="pathway">
+                        <label for="interrogate-pathway">pathway</label><br>
+                        <input type="radio" name="interrogation-group" value="gene-set" id="interrogate-gene-set"
+                            checked>
+                        <label for="interrogate-gene-set">gene-set</label><br>
+                    </div>
 
                     <button id="createChart">Venn Diagram</button>
                     <div class="box-control">
@@ -43,7 +51,7 @@
                     <input type="checkbox" name="reverse_fc" id="reverse_fc_DhuL" checked>
                     <label for="reverse_fc_DhuL">reverse log2 Fold Change</label>
                 </div>
-                <div>
+                <div class="regulation">
                     <input type="radio" name="regulation_DhuL" id="down_regulation_DhuL" value="down" checked>
                     <label for="down_regulation_DhuL">down-regulation</label><br>
                     <input type="radio" name="regulation_DhuL" value="up" id="up_regulation_DhuL">
@@ -65,7 +73,7 @@
                     <input type="checkbox" name="reverse_fc" id="reverse_fc_6AQR" checked>
                     <label for="reverse_fc_6AQR">reverse log2 Fold Change</label>
                 </div>
-                <div>
+                <div class="regulation">
                     <input type="radio" name="regulation_6AQR" id="down_regulation_6AQR" value="down" checked>
                     <label for="down_regulation_6AQR">down-regulation</label><br>
                     <input type="radio" name="regulation_6AQR" id="up_regulation_6AQR" value="up">

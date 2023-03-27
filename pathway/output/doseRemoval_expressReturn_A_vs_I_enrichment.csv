@@ -1,0 +1,2 @@
+index,rank,term,p-value,zscore,combined_score,overlap_genes,q-value,7,8,library
+0,1,ECM-receptor interaction,0.0001444268076530154,5.794666666666667,51.24071739324899,"['LAMB2', 'ITGB3', 'ITGA2', 'COL6A2', 'COL4A5', 'COL6A3', 'CD36', 'HSPG2']",0.028163227492338003,0,0,KEGG2019Mouse

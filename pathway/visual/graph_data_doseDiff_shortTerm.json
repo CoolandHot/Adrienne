@@ -1,0 +1,405 @@
+{
+    "nodes": [
+        {
+            "id": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "value": 12,
+            "group": "A_vs_F"
+        },
+        {
+            "id": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "value": 13,
+            "group": "A_vs_F"
+        },
+        {
+            "id": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "value": 13,
+            "group": "A_vs_F"
+        },
+        {
+            "id": "Cardiac muscle contraction(A_vs_F)",
+            "value": 10,
+            "group": "A_vs_F"
+        },
+        {
+            "id": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "value": 14,
+            "group": "A_vs_G"
+        },
+        {
+            "id": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "value": 19,
+            "group": "A_vs_G"
+        },
+        {
+            "id": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "value": 14,
+            "group": "A_vs_G"
+        },
+        {
+            "id": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "value": 12,
+            "group": "A_vs_G"
+        },
+        {
+            "id": "Vascular smooth muscle contraction(A_vs_G)",
+            "value": 17,
+            "group": "A_vs_G"
+        },
+        {
+            "id": "Insulin secretion(A_vs_G)",
+            "value": 12,
+            "group": "A_vs_G"
+        },
+        {
+            "id": "cAMP signaling pathway(A_vs_G)",
+            "value": 21,
+            "group": "A_vs_G"
+        },
+        {
+            "id": "Cardiac muscle contraction(A_vs_G)",
+            "value": 11,
+            "group": "A_vs_G"
+        }
+    ],
+    "links": [
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "target": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "value": 9
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "target": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "value": 9
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "target": "Cardiac muscle contraction(A_vs_F)",
+            "value": 4
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "target": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "value": 8
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "target": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "value": 4
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "target": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "value": 8
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "target": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "value": 11
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "target": "Vascular smooth muscle contraction(A_vs_G)",
+            "value": 1
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "target": "Insulin secretion(A_vs_G)",
+            "value": 1
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "target": "cAMP signaling pathway(A_vs_G)",
+            "value": 1
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "target": "Cardiac muscle contraction(A_vs_G)",
+            "value": 4
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "target": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "value": 12
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "target": "Cardiac muscle contraction(A_vs_F)",
+            "value": 6
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "target": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "value": 12
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "target": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "value": 7
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "target": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "value": 11
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "target": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "value": 8
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "target": "Vascular smooth muscle contraction(A_vs_G)",
+            "value": 3
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "target": "Insulin secretion(A_vs_G)",
+            "value": 1
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "target": "cAMP signaling pathway(A_vs_G)",
+            "value": 3
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "target": "Cardiac muscle contraction(A_vs_G)",
+            "value": 6
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "target": "Cardiac muscle contraction(A_vs_F)",
+            "value": 6
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "target": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "value": 11
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "target": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "value": 8
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "target": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "value": 12
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "target": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "value": 8
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "target": "Vascular smooth muscle contraction(A_vs_G)",
+            "value": 3
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "target": "Insulin secretion(A_vs_G)",
+            "value": 2
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "target": "cAMP signaling pathway(A_vs_G)",
+            "value": 3
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "target": "Cardiac muscle contraction(A_vs_G)",
+            "value": 6
+        },
+        {
+            "source": "Cardiac muscle contraction(A_vs_F)",
+            "target": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "value": 6
+        },
+        {
+            "source": "Cardiac muscle contraction(A_vs_F)",
+            "target": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "value": 9
+        },
+        {
+            "source": "Cardiac muscle contraction(A_vs_F)",
+            "target": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "value": 6
+        },
+        {
+            "source": "Cardiac muscle contraction(A_vs_F)",
+            "target": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "value": 4
+        },
+        {
+            "source": "Cardiac muscle contraction(A_vs_F)",
+            "target": "Vascular smooth muscle contraction(A_vs_G)",
+            "value": 1
+        },
+        {
+            "source": "Cardiac muscle contraction(A_vs_F)",
+            "target": "Insulin secretion(A_vs_G)",
+            "value": 3
+        },
+        {
+            "source": "Cardiac muscle contraction(A_vs_F)",
+            "target": "cAMP signaling pathway(A_vs_G)",
+            "value": 4
+        },
+        {
+            "source": "Cardiac muscle contraction(A_vs_F)",
+            "target": "Cardiac muscle contraction(A_vs_G)",
+            "value": 10
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "target": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "value": 8
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "target": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "value": 12
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "target": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "value": 9
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "target": "Vascular smooth muscle contraction(A_vs_G)",
+            "value": 3
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "target": "Insulin secretion(A_vs_G)",
+            "value": 1
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "target": "cAMP signaling pathway(A_vs_G)",
+            "value": 3
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "target": "Cardiac muscle contraction(A_vs_G)",
+            "value": 7
+        },
+        {
+            "source": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "target": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "value": 10
+        },
+        {
+            "source": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "target": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "value": 5
+        },
+        {
+            "source": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "target": "Vascular smooth muscle contraction(A_vs_G)",
+            "value": 6
+        },
+        {
+            "source": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "target": "Insulin secretion(A_vs_G)",
+            "value": 8
+        },
+        {
+            "source": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "target": "cAMP signaling pathway(A_vs_G)",
+            "value": 8
+        },
+        {
+            "source": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "target": "Cardiac muscle contraction(A_vs_G)",
+            "value": 10
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "target": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "value": 9
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "target": "Vascular smooth muscle contraction(A_vs_G)",
+            "value": 4
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "target": "Insulin secretion(A_vs_G)",
+            "value": 3
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "target": "cAMP signaling pathway(A_vs_G)",
+            "value": 4
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "target": "Cardiac muscle contraction(A_vs_G)",
+            "value": 7
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "target": "Vascular smooth muscle contraction(A_vs_G)",
+            "value": 1
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "target": "Insulin secretion(A_vs_G)",
+            "value": 1
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "target": "cAMP signaling pathway(A_vs_G)",
+            "value": 1
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "target": "Cardiac muscle contraction(A_vs_G)",
+            "value": 5
+        },
+        {
+            "source": "Vascular smooth muscle contraction(A_vs_G)",
+            "target": "Insulin secretion(A_vs_G)",
+            "value": 4
+        },
+        {
+            "source": "Vascular smooth muscle contraction(A_vs_G)",
+            "target": "cAMP signaling pathway(A_vs_G)",
+            "value": 5
+        },
+        {
+            "source": "Vascular smooth muscle contraction(A_vs_G)",
+            "target": "Cardiac muscle contraction(A_vs_G)",
+            "value": 1
+        },
+        {
+            "source": "Insulin secretion(A_vs_G)",
+            "target": "cAMP signaling pathway(A_vs_G)",
+            "value": 8
+        },
+        {
+            "source": "Insulin secretion(A_vs_G)",
+            "target": "Cardiac muscle contraction(A_vs_G)",
+            "value": 3
+        },
+        {
+            "source": "cAMP signaling pathway(A_vs_G)",
+            "target": "Cardiac muscle contraction(A_vs_G)",
+            "value": 4
+        }
+    ],
+    "groups": [
+        {
+            "name": "A_vs_F"
+        },
+        {
+            "name": "A_vs_G"
+        }
+    ],
+    "title": "KEGG_2019_Mouse"
+}

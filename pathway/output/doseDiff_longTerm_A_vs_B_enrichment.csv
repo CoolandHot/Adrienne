@@ -1,0 +1,2 @@
+index,rank,term,p-value,zscore,combined_score,overlap_genes,q-value,7,8,library
+0,1,TNF signaling pathway,0.0005898232953942797,20.626168224299064,153.36974258428083,"['EDN1', 'TNFAIP3', 'TRAF1']",0.02359293181577119,0,0,KEGG2019Mouse
