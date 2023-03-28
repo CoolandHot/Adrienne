@@ -1,9 +1,20 @@
 var p_adjust = 0.05;
+// const csv_p_adj_str = 'p_val_adj', csv_log2FC_str = 'avg_log2FC'
+const csv_p_adj_str = 'padj', csv_log2FC_str = 'log2FoldChange'
+
+
 
 const random4chars = () => {
     return [...Array(4)].map(() => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'[Math.floor(Math.random() * 62)]).join('');
 }
 
+
+/**
+ * Reads a file and return 
+ * @param {Object} file the value from input[type=file].files[0]
+ * @param {Boolean} reverse true/false, indicating whether to flip the log2 fold change
+ * @returns {Array} a filtered json whose p.adjust.value < `p_adjust`
+ */
 function readCSVFile(file, reverse = true) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -18,10 +29,10 @@ function readCSVFile(file, reverse = true) {
                 p_adj_str = "q-value"
             }
             if (interrogate === "gene-set") {
-                p_adj_str = "padj"
+                p_adj_str = csv_p_adj_str
                 if (reverse) {
                     records = records.map(v => {
-                        v['log2FoldChange'] = -parseFloat(v['log2FoldChange'])
+                        v[csv_log2FC_str] = -parseFloat(v[csv_log2FC_str])
                         return v
                     })
                 }
@@ -48,6 +59,10 @@ var tooltip = d3.select("body")
     .append("div")
     .attr("class", "venntooltip");
 
+/**
+ * read the parameter settings from DOM, map all csv contents to the return
+ * @returns an array of each {name, value, records}
+ */
 const map_csv = () => {
     return new Promise((resolve, reject) => {
         let interrogate = document.querySelector(".interrogation-group input[type='radio']:checked").value;
@@ -57,7 +72,7 @@ const map_csv = () => {
                 let records = await readCSVFile(v['file'], v['reverse']);
                 if (interrogate === "gene-set") {
                     // only reserve the up/down-regulation
-                    records = records.filter(record => v['up_regulate'] == 'up' ? record['log2FoldChange'] > 0 : record['log2FoldChange'] < 0);
+                    records = records.filter(record => v['up_regulate'] == 'up' ? record[csv_log2FC_str] > 0 : record[csv_log2FC_str] < 0);
                     // get the remaining gene list
                     let geneList = records.map(record => record['gene']);
                     return { "name": `${v['name']}(${v['up_regulate']})`, "value": geneList, "records": records }
@@ -113,11 +128,20 @@ function getCombinations(arr, m) {
 /**
  * This function returns an array of all combinations of intersection.
  * @param {Array} dataset - the data table of records
- * @returns {Array} An array of dictionary objects. {sets: Array, size: number, records: Array}
- */
+ * @returns {Array} An array of dictionary objects: 
+*/
 const compute_intersect = (dataset) => {
-    // one set specially include the records
-    let result = dataset.map(v => ({ sets: [v['name']], size: v['value'].length, records: v['records'] }))
+    /**
+     * construct a result from the dataset
+     *  for each combination of sets
+     *  
+     *   {sets: [name of the sets],
+     *    size: length of the intersection,
+     *    record_idx: [the index of dataset holding the records],
+     *    intersect: [intersect gene names]}
+     */
+
+    let result = [];
     // two or more sets for intersections, the records are the intersect gene list, no detailed log2FC nor p.adjust
     for (let i = 1; i < dataset.length; i++) {
         let comb_res = getCombinations(dataset, i + 1)
@@ -127,7 +151,8 @@ const compute_intersect = (dataset) => {
                     return {
                         sets: v['combination'].map(x => x['name']),
                         size: intersect_v.length,
-                        records: intersect_v
+                        record_idx: v['indices'],
+                        intersect: intersect_v
                     }
 
                 }
@@ -138,6 +163,47 @@ const compute_intersect = (dataset) => {
             result = result.concat(comb_res)
         }
     }
+
+    /**
+     * from the result, map each record index to real records
+     *  so that it can be directly used in the tooltips of D3
+     * 
+     *   {sets: [name of the sets],
+     *    size: length of the intersection,
+     *    record_idx: [the index of dataset holding the records],
+     *    intersect: [intersect gene names],
+     *    records: [{table, setName}]}
+     */
+    let interrogate = document.querySelector(".interrogation-group input[type='radio']:checked").value, name_str;
+    if (interrogate === "gene-set") name_str = 'gene'
+    if (interrogate === "pathway") name_str = 'term'
+    result = result.map(v => {
+        v['records'] = v['record_idx'].map(i => {
+            return {
+                table: dataset[i]['records'].filter(o => v['intersect'].includes(o[name_str])),
+                setName: dataset[i]['name']
+            }
+        })
+        return v
+    })
+    // for one set, only reserve the unique items
+    var unique = dataset.map((v, i) => ({
+        sets: [v['name']],
+        size: v['value'].length,
+        record_idx: [i],
+        intersect: [],
+        records: [{
+            setName: v['name'],
+            table: v['records'].filter(o => {
+                // look for intersection of this set with another set
+                let comb_twosets = result.filter(r => r['sets'].length == 2 & r['sets'].includes(v['name']));
+                return !comb_twosets.some(r => r['intersect'].includes(o[name_str]))
+            })
+        }]
+    }))
+
+    result = result.concat(unique)
+
     return result
 }
 
@@ -176,36 +242,49 @@ const plot_update = (dataset) => {
             // pop up detailed tables
             document.getElementById("panel").classList.remove("hidden");
 
-            var records = d.records;
-            var tableNames = d.sets, table;
-            var headers;
+            /**
+             * display the detail table/tables
+             * 
+             * 1. single set region click: display only one table for unique items
+             * 2. intersect region click: one table for each set, display vertically align
+             * 
+             * the `d` is :
+            *   {sets: [name of the sets],
+            *    size: length of the intersection,
+            *    record_idx: [the index of dataset holding the records],
+            *    intersect: [intersect gene names],
+            *    records: [{table, setName}]}
+             */
+            var records = d.records, headers;
             let interrogate = document.querySelector(".interrogation-group input[type='radio']:checked").value;
             if (interrogate === "gene-set")
-                headers = ['gene', 'log2FoldChange', 'padj']
+                headers = ['gene', csv_log2FC_str, csv_p_adj_str]
             if (interrogate === "pathway")
                 headers = ['term', 'q-value', 'combined_score', 'overlap_genes']
-            if (tableNames.length == 1) {
-                table = '<h3>' + tableNames + '</h3>';
-                table += records.length + ' common items<br>';
-                table += '<table><thead><tr>'
+
+            var result_tables = records.map(record => {
+                var nrows = record['table'].length;
+                var res_table = `<h3>${record['setName']}</h3>${nrows} ${records.length === 1 ? 'unique' : 'shared'} items<br>`;
+                // table header
+                res_table += '<table><thead><tr>'
                 for (let th of headers) {
-                    table += `<th>${th}</th>`
+                    res_table += `<th>${th}</th>`
                 }
-                table += '</tr></thead><tbody>';
-                for (let j = 0; j < records.length; j++) {
-                    table += '<tr>'
+                res_table += '</tr></thead><tbody>';
+                // table body
+                for (let j = 0; j < nrows; j++) {
+                    res_table += '<tr>'
                     for (let th of headers) {
-                        table += `<td>${records[j][th]}</td>`
+                        res_table += `<td>${record['table'][j][th]}</td>`
                     }
-                    table += `</tr>`;
+                    res_table += `</tr>`;
                 }
-                table += '</tbody></table>'
-            } else {
-                table = '<h3>' + tableNames.join(" * ") + '</h3>';
-                table += records.length + ' common items<br>';
-                table += records.join(", ")
-            }
-            document.querySelector('.panel-content').innerHTML = table;
+                res_table += '</tbody></table>'
+
+                return res_table
+            })
+
+            document.querySelector('.panel-content').innerHTML = result_tables.join('');
 
         })
 
@@ -240,6 +319,7 @@ function addBox() {
     let new_group_suffix = random4chars();
     // reverse log2 fold change checkbox
     let checkbox = newNode.querySelector(".dataFilter-paras input[type='checkbox']");
+    checkbox.checked = false;
     checkbox.id = `reverse_fc_${new_group_suffix}`;
     checkbox.parentNode.querySelector("label").setAttribute("for", `reverse_fc_${new_group_suffix}`);
     // up/down-regulation radio groups
