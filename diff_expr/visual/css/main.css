@@ -1,15 +1,32 @@
-.web-gadgets {
+/* parameter settings (at the top row) */
+.global-gadget {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: 1fr 4fr 1fr;
   grid-gap: 10px;
   width: 95%;
 }
 
-.global-gadget,
-.file-upload-frame {
+
+.csv_headers {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  border: 1px dashed #e6e6e6
+}
+
+.csv_single_headers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: 1px dashed #e6e6e6
+}
+
+.csv_single_headers label {
+  width: calc(50% - 10px);
+  display: flex;
+  align-items: center;
+}
+
+.csv_single_headers input {
+  width: calc(50% - 10px);
 }
 
 .box-control {
@@ -45,6 +62,24 @@ input[type="text"] {
   text-align: center;
   text-decoration: none;
   margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* file uploaders */
+
+.web-gadgets {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+  width: 95%;
+}
+
+.file-upload-frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .set-information {
@@ -91,16 +126,16 @@ input[type="text"] {
 }
 
 
-#message {
-  color: blue;
-}
-
-
 label {
   font-size: 14px;
   padding: 2px;
   text-align: center;
 }
+
+#message {
+  color: blue;
+}
+
 
 /* Venn diagram */
 .venntooltip {

@@ -1,7 +1,4 @@
-var p_adjust = 0.05;
-// const csv_p_adj_str = 'p_val_adj', csv_log2FC_str = 'avg_log2FC'
-const csv_p_adj_str = 'padj', csv_log2FC_str = 'log2FoldChange'
-
+var p_adjust = 0.05, csv_p_adj_str, csv_log2FC_str, csv_gene_str, csv_headers_str
 
 
 const random4chars = () => {
@@ -24,12 +21,8 @@ function readCSVFile(file, reverse = true) {
                 skipEmptyLines: true,
             });
             let interrogate = document.querySelector(".interrogation-group input[type='radio']:checked").value;
-            var records = csvData.data, filteredRecords, p_adj_str;
-            if (interrogate === "pathway") {
-                p_adj_str = "q-value"
-            }
+            var records = csvData.data, filteredRecords;
             if (interrogate === "gene-set") {
-                p_adj_str = csv_p_adj_str
                 if (reverse) {
                     records = records.map(v => {
                         v[csv_log2FC_str] = -parseFloat(v[csv_log2FC_str])
@@ -37,7 +30,7 @@ function readCSVFile(file, reverse = true) {
                     })
                 }
             }
-            filteredRecords = records.filter(record => record[p_adj_str] && record[p_adj_str] < p_adjust);
+            filteredRecords = records.filter(record => record[csv_p_adj_str] && record[csv_p_adj_str] < p_adjust);
             resolve(filteredRecords);
         };
         reader.onerror = error => reject(error);
@@ -74,11 +67,11 @@ const map_csv = () => {
                     // only reserve the up/down-regulation
                     records = records.filter(record => v['up_regulate'] == 'up' ? record[csv_log2FC_str] > 0 : record[csv_log2FC_str] < 0);
                     // get the remaining gene list
-                    let geneList = records.map(record => record['gene']);
+                    let geneList = records.map(record => record[csv_gene_str]);
                     return { "name": `${v['name']}(${v['up_regulate']})`, "value": geneList, "records": records }
                 }
                 if (interrogate === "pathway") {
-                    let pathwayList = records.map(record => record['term']);
+                    let pathwayList = records.map(record => record[csv_gene_str]);
                     return { "name": `${v['name']}`, "value": pathwayList, "records": records }
                 }
             });
@@ -174,13 +167,10 @@ const compute_intersect = (dataset) => {
      *    intersect: [intersect gene names],
      *    records: [{table, setName}]}
      */
-    let interrogate = document.querySelector(".interrogation-group input[type='radio']:checked").value, name_str;
-    if (interrogate === "gene-set") name_str = 'gene'
-    if (interrogate === "pathway") name_str = 'term'
     result = result.map(v => {
         v['records'] = v['record_idx'].map(i => {
             return {
-                table: dataset[i]['records'].filter(o => v['intersect'].includes(o[name_str])),
+                table: dataset[i]['records'].filter(o => v['intersect'].includes(o[csv_gene_str])),
                 setName: dataset[i]['name']
             }
         })
@@ -197,7 +187,7 @@ const compute_intersect = (dataset) => {
             table: v['records'].filter(o => {
                 // look for intersection of this set with another set
                 let comb_twosets = result.filter(r => r['sets'].length == 2 & r['sets'].includes(v['name']));
-                return !comb_twosets.some(r => r['intersect'].includes(o[name_str]))
+                return !comb_twosets.some(r => r['intersect'].includes(o[csv_gene_str]))
             })
         }]
     }))
@@ -207,6 +197,20 @@ const compute_intersect = (dataset) => {
     return result
 }
 
+
+const getInputValues = () => {
+    let results = [];
+    document.querySelectorAll(".set-information")
+        .forEach(one => {
+            let res = {};
+            res['file'] = one.querySelector("input[type='file']").files[0];
+            res['name'] = one.querySelector("input[type='text']").value;
+            res['reverse'] = one.querySelector(".dataFilter-paras input[type='checkbox']").checked;
+            res['up_regulate'] = one.querySelector(".dataFilter-paras input[type='radio']:checked").value;
+            results.push(res)
+        })
+    return results
+}
 
 const plot_update = (dataset) => {
     document.getElementById("chart-title").innerText = dataset.map(v => v['name']).join(" * ");
@@ -255,26 +259,20 @@ const plot_update = (dataset) => {
             *    intersect: [intersect gene names],
             *    records: [{table, setName}]}
              */
-            var records = d.records, headers;
-            let interrogate = document.querySelector(".interrogation-group input[type='radio']:checked").value;
-            if (interrogate === "gene-set")
-                headers = ['gene', csv_log2FC_str, csv_p_adj_str]
-            if (interrogate === "pathway")
-                headers = ['term', 'q-value', 'combined_score', 'overlap_genes']
-
+            var records = d.records;
             var result_tables = records.map(record => {
                 var nrows = record['table'].length;
                 var res_table = `<h3>${record['setName']}</h3>${nrows} ${records.length === 1 ? 'unique' : 'shared'} items<br>`;
                 // table header
                 res_table += '<table><thead><tr>'
-                for (let th of headers) {
+                for (let th of csv_headers_str) {
                     res_table += `<th>${th}</th>`
                 }
                 res_table += '</tr></thead><tbody>';
                 // table body
                 for (let j = 0; j < nrows; j++) {
                     res_table += '<tr>'
-                    for (let th of headers) {
+                    for (let th of csv_headers_str) {
                         res_table += `<td>${record['table'][j][th]}</td>`
                     }
                     res_table += `</tr>`;
@@ -392,35 +390,51 @@ document.querySelector(".interrogation-group").addEventListener("click", event =
             // hide reverse FoldChange & up/down-regulation radio
             document.querySelectorAll(".dataFilter-paras")
                 .forEach(o => o.style.display = "none")
+
+            // change the default headers
+            document.querySelector("#csv_headers_q_value").value = "q-value"
+            document.querySelector("#csv_headers_id").value = "term"
+            document.querySelector("#csv_headers_log_FC").value = "log2FoldChange"
+            document.querySelector("#csv_headers_str").value = "term,q-value,combined_score,overlap_genes"
+            init_csv_headers()
         }
         if (event.target.value == 'gene-set') {
             // display reverse FoldChange & up/down-regulation radio
             document.querySelectorAll(".dataFilter-paras")
                 .forEach(o => o.style.display = "")
+
+            // change the default headers
+            document.querySelector("#csv_headers_q_value").value = "padj"
+            document.querySelector("#csv_headers_id").value = "gene"
+            document.querySelector("#csv_headers_log_FC").value = "log2FoldChange"
+            document.querySelector("#csv_headers_str").value = "gene,log2FoldChange,padj"
+            init_csv_headers()
         }
     }
 })
 
 overwrite_listers();
 
-const getInputValues = () => {
-    let results = [];
-    document.querySelectorAll(".set-information")
-        .forEach(one => {
-            let res = {};
-            res['file'] = one.querySelector("input[type='file']").files[0];
-            res['name'] = one.querySelector("input[type='text']").value;
-            res['reverse'] = one.querySelector(".dataFilter-paras input[type='checkbox']").checked;
-            res['up_regulate'] = one.querySelector(".dataFilter-paras input[type='radio']:checked").value;
-            results.push(res)
-        })
-    return results
+// initialise the values, then change onchange
+const init_csv_headers = () => {
+    p_adjust = parseFloat(document.querySelector("#p_adjust_val").value)
+    csv_p_adj_str = document.querySelector("#csv_headers_q_value").value
+    csv_gene_str = document.querySelector("#csv_headers_id").value
+    csv_log2FC_str = document.querySelector("#csv_headers_log_FC").value
+    csv_headers_str = document.querySelector("#csv_headers_str").value.split(",").map(o => o.trim())
 }
 
-document.querySelector("#p_adjust")
-    .addEventListener('change', event => {
-        p_adjust = parseFloat(event.target.value)
-    })
+init_csv_headers()
+document.querySelector("#p_adjust_val")
+    .addEventListener('change', e => p_adjust = parseFloat(e.target.value))
+document.querySelector("#csv_headers_q_value")
+    .addEventListener("change", (e) => csv_p_adj_str = e.target.value)
+document.querySelector("#csv_headers_id")
+    .addEventListener("change", (e) => csv_gene_str = e.target.value)
+document.querySelector("#csv_headers_log_FC")
+    .addEventListener("change", (e) => csv_log2FC_str = e.target.value)
+document.querySelector("#csv_headers_str")
+    .addEventListener("change", (e) => csv_headers_str = e.target.value.split(",").map(o => o.trim()))
 
 
 document.getElementById("panel").addEventListener('click', function (event) {
