@@ -1,0 +1,389 @@
+{
+    "nodes": [
+        {
+            "name": "Adrenergic signaling in cardiomyocytes",
+            "value": 19,
+            "category": "A_vs_G",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#91cc75"
+                        }
+                    ]
+                }
+            },
+            "proportion": "A_vs_G: 100.00%"
+        },
+        {
+            "name": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)",
+            "value": 13,
+            "category": "mix",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.5,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.5,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#91cc75"
+                        }
+                    ]
+                }
+            },
+            "proportion": "A_vs_F: 50.00%<br>A_vs_G: 50.00%"
+        },
+        {
+            "name": "Cardiac muscle contraction",
+            "value": 11,
+            "category": "mix",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.476,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.476,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#91cc75"
+                        }
+                    ]
+                }
+            },
+            "proportion": "A_vs_F: 47.60%<br>A_vs_G: 52.40%"
+        },
+        {
+            "name": "Dilated cardiomyopathy (DCM)",
+            "value": 15,
+            "category": "mix",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.481,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.481,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 0.999,
+                            "color": "#91cc75"
+                        }
+                    ]
+                }
+            },
+            "proportion": "A_vs_F: 48.10%<br>A_vs_G: 51.80%"
+        },
+        {
+            "name": "Hypertrophic cardiomyopathy (HCM)",
+            "value": 15,
+            "category": "mix",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.481,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.481,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 0.999,
+                            "color": "#91cc75"
+                        }
+                    ]
+                }
+            },
+            "proportion": "A_vs_F: 48.10%<br>A_vs_G: 51.80%"
+        },
+        {
+            "name": "Insulin secretion",
+            "value": 12,
+            "category": "A_vs_G",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#91cc75"
+                        }
+                    ]
+                }
+            },
+            "proportion": "A_vs_G: 100.00%"
+        },
+        {
+            "name": "Vascular smooth muscle contraction",
+            "value": 17,
+            "category": "A_vs_G",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#91cc75"
+                        }
+                    ]
+                }
+            },
+            "proportion": "A_vs_G: 100.00%"
+        },
+        {
+            "name": "cAMP signaling pathway",
+            "value": 21,
+            "category": "A_vs_G",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#91cc75"
+                        }
+                    ]
+                }
+            },
+            "proportion": "A_vs_G: 100.00%"
+        }
+    ],
+    "links": [
+        {
+            "source": "Adrenergic signaling in cardiomyocytes",
+            "target": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)",
+            "value": 5
+        },
+        {
+            "source": "Adrenergic signaling in cardiomyocytes",
+            "target": "Cardiac muscle contraction",
+            "value": 10
+        },
+        {
+            "source": "Adrenergic signaling in cardiomyocytes",
+            "target": "Dilated cardiomyopathy (DCM)",
+            "value": 10
+        },
+        {
+            "source": "Adrenergic signaling in cardiomyocytes",
+            "target": "Hypertrophic cardiomyopathy (HCM)",
+            "value": 8
+        },
+        {
+            "source": "Adrenergic signaling in cardiomyocytes",
+            "target": "Insulin secretion",
+            "value": 8
+        },
+        {
+            "source": "Adrenergic signaling in cardiomyocytes",
+            "target": "Vascular smooth muscle contraction",
+            "value": 6
+        },
+        {
+            "source": "Adrenergic signaling in cardiomyocytes",
+            "target": "cAMP signaling pathway",
+            "value": 8
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)",
+            "target": "Cardiac muscle contraction",
+            "value": 5
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)",
+            "target": "Dilated cardiomyopathy (DCM)",
+            "value": 10
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)",
+            "target": "Hypertrophic cardiomyopathy (HCM)",
+            "value": 10
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)",
+            "target": "Insulin secretion",
+            "value": 1
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)",
+            "target": "Vascular smooth muscle contraction",
+            "value": 1
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)",
+            "target": "cAMP signaling pathway",
+            "value": 1
+        },
+        {
+            "source": "Cardiac muscle contraction",
+            "target": "Dilated cardiomyopathy (DCM)",
+            "value": 7
+        },
+        {
+            "source": "Cardiac muscle contraction",
+            "target": "Hypertrophic cardiomyopathy (HCM)",
+            "value": 7
+        },
+        {
+            "source": "Cardiac muscle contraction",
+            "target": "Insulin secretion",
+            "value": 3
+        },
+        {
+            "source": "Cardiac muscle contraction",
+            "target": "Vascular smooth muscle contraction",
+            "value": 1
+        },
+        {
+            "source": "Cardiac muscle contraction",
+            "target": "cAMP signaling pathway",
+            "value": 4
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)",
+            "target": "Hypertrophic cardiomyopathy (HCM)",
+            "value": 13
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)",
+            "target": "Insulin secretion",
+            "value": 3
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)",
+            "target": "Vascular smooth muscle contraction",
+            "value": 4
+        },
+        {
+            "source": "Dilated cardiomyopathy (DCM)",
+            "target": "cAMP signaling pathway",
+            "value": 4
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)",
+            "target": "Insulin secretion",
+            "value": 1
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)",
+            "target": "Vascular smooth muscle contraction",
+            "value": 3
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)",
+            "target": "cAMP signaling pathway",
+            "value": 3
+        },
+        {
+            "source": "Insulin secretion",
+            "target": "Vascular smooth muscle contraction",
+            "value": 4
+        },
+        {
+            "source": "Insulin secretion",
+            "target": "cAMP signaling pathway",
+            "value": 8
+        },
+        {
+            "source": "Vascular smooth muscle contraction",
+            "target": "cAMP signaling pathway",
+            "value": 5
+        }
+    ],
+    "categories": [
+        {
+            "name": "A_vs_F"
+        },
+        {
+            "name": "A_vs_G"
+        },
+        {
+            "name": "mix",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.3,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.3,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 0.6,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 0.6,
+                            "color": "#fac858"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#fac858"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "title": "KEGG_2019_Mouse"
+}

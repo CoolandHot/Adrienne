@@ -1,0 +1,103 @@
+ #para-settings {
+     position: fixed;
+     padding-left: 10px;
+     z-index: 1;
+     margin-top: 25px;
+     /* background-color: rgb(255, 255, 255) */
+     font-size: 1em;
+     color: white;
+ }
+
+ /* toggle switch */
+ #nodeMerge_switch {
+     height: 0;
+     width: 0;
+     visibility: hidden;
+ }
+
+ label[for=nodeMerge_switch] {
+     cursor: pointer;
+     margin-top: 5px;
+     width: 26px;
+     height: 13px;
+     background: grey;
+     display: block;
+     border-radius: 10px;
+     position: relative;
+ }
+
+ label[for=nodeMerge_switch]:after {
+     content: '';
+     position: absolute;
+     top: 2px;
+     left: 2px;
+     width: 9px;
+     height: 9px;
+     background: #fff;
+     border-radius: 9px;
+     transition: 0.3s;
+ }
+
+ #nodeMerge_switch:checked+label[for=nodeMerge_switch] {
+     background: #bada55;
+ }
+
+ #nodeMerge_switch:checked+label[for=nodeMerge_switch]:after {
+     left: calc(100% - 2px);
+     transform: translateX(-100%);
+ }
+
+ /* filter input for pathway */
+ #filter_pathway {
+     margin-top: 5px;
+     width: 300px;
+     height: 20px;
+     font-size: 12px;
+ }
+
+ /* pop up contents */
+
+ .hidden {
+     display: none;
+ }
+
+ .panelmask {
+     position: fixed;
+     z-index: 1;
+     padding-top: 100px;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     overflow: auto;
+     background-color: rgb(0, 0, 0);
+     background-color: rgba(0, 0, 0, 0.4);
+ }
+
+ .panel-content {
+     background-color: #fefefe;
+     margin: auto;
+     width: 70%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     padding: 20px;
+     border: 1px solid#888;
+     font-size: 1em;
+     z-index: inherit;
+ }
+
+ /* bottom right inputs */
+ .json-path-for-charts {
+     position: fixed;
+     bottom: 30px;
+     right: 40px;
+     display: flex;
+     flex-direction: column;
+     align-items: flex-end;
+ }
+
+ .json-path-for-charts label {
+     color: white;
+ }

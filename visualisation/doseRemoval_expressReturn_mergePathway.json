@@ -1,0 +1,191 @@
+{
+    "nodes": [
+        {
+            "name": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)",
+            "value": 14,
+            "category": "mix",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#fac858"
+                        },
+                        {
+                            "offset": 0.5,
+                            "color": "#fac858"
+                        },
+                        {
+                            "offset": 0.5,
+                            "color": "#ee6666"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#ee6666"
+                        }
+                    ]
+                }
+            },
+            "proportion": "E_vs_H: 50.00%<br>G_vs_J: 50.00%"
+        },
+        {
+            "name": "Complement and coagulation cascades",
+            "value": 11,
+            "category": "E_vs_H",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#fac858"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#fac858"
+                        }
+                    ]
+                }
+            },
+            "proportion": "E_vs_H: 100.00%"
+        },
+        {
+            "name": "ECM-receptor interaction",
+            "value": 19,
+            "category": "mix",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.136,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.136,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 0.5,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 0.5,
+                            "color": "#fac858"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#fac858"
+                        }
+                    ]
+                }
+            },
+            "proportion": "A_vs_H: 13.60%<br>A_vs_I: 36.40%<br>E_vs_H: 50.00%"
+        },
+        {
+            "name": "Hypertrophic cardiomyopathy (HCM)",
+            "value": 15,
+            "category": "mix",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#fac858"
+                        },
+                        {
+                            "offset": 0.5,
+                            "color": "#fac858"
+                        },
+                        {
+                            "offset": 0.5,
+                            "color": "#ee6666"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#ee6666"
+                        }
+                    ]
+                }
+            },
+            "proportion": "E_vs_H: 50.00%<br>G_vs_J: 50.00%"
+        }
+    ],
+    "links": [
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)",
+            "target": "ECM-receptor interaction",
+            "value": 2
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)",
+            "target": "Hypertrophic cardiomyopathy (HCM)",
+            "value": 11
+        },
+        {
+            "source": "Complement and coagulation cascades",
+            "target": "ECM-receptor interaction",
+            "value": 2
+        },
+        {
+            "source": "ECM-receptor interaction",
+            "target": "Hypertrophic cardiomyopathy (HCM)",
+            "value": 2
+        }
+    ],
+    "categories": [
+        {
+            "name": "A_vs_H"
+        },
+        {
+            "name": "A_vs_I"
+        },
+        {
+            "name": "E_vs_H"
+        },
+        {
+            "name": "G_vs_J"
+        },
+        {
+            "name": "mix",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.3,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.3,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 0.6,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 0.6,
+                            "color": "#fac858"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#fac858"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "title": "KEGG_2019_Mouse"
+}

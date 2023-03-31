@@ -1,0 +1,126 @@
+{
+    "nodes": [
+        {
+            "name": "ECM-receptor interaction(A_vs_H)",
+            "value": 3,
+            "category": "A_vs_H"
+        },
+        {
+            "name": "ECM-receptor interaction(A_vs_I)",
+            "value": 8,
+            "category": "A_vs_I"
+        },
+        {
+            "name": "ECM-receptor interaction(E_vs_H)",
+            "value": 11,
+            "category": "E_vs_H"
+        },
+        {
+            "name": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(E_vs_H)",
+            "value": 10,
+            "category": "E_vs_H"
+        },
+        {
+            "name": "Hypertrophic cardiomyopathy (HCM)(E_vs_H)",
+            "value": 11,
+            "category": "E_vs_H"
+        },
+        {
+            "name": "Complement and coagulation cascades(E_vs_H)",
+            "value": 11,
+            "category": "E_vs_H"
+        },
+        {
+            "name": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(G_vs_J)",
+            "value": 10,
+            "category": "G_vs_J"
+        },
+        {
+            "name": "Hypertrophic cardiomyopathy (HCM)(G_vs_J)",
+            "value": 11,
+            "category": "G_vs_J"
+        }
+    ],
+    "links": [
+        {
+            "source": "ECM-receptor interaction(A_vs_H)",
+            "target": "ECM-receptor interaction(E_vs_H)",
+            "value": 2
+        },
+        {
+            "source": "ECM-receptor interaction(A_vs_I)",
+            "target": "ECM-receptor interaction(E_vs_H)",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction(E_vs_H)",
+            "target": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(E_vs_H)",
+            "value": 2
+        },
+        {
+            "source": "ECM-receptor interaction(E_vs_H)",
+            "target": "Hypertrophic cardiomyopathy (HCM)(E_vs_H)",
+            "value": 2
+        },
+        {
+            "source": "ECM-receptor interaction(E_vs_H)",
+            "target": "Complement and coagulation cascades(E_vs_H)",
+            "value": 2
+        },
+        {
+            "source": "ECM-receptor interaction(E_vs_H)",
+            "target": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(G_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction(E_vs_H)",
+            "target": "Hypertrophic cardiomyopathy (HCM)(G_vs_J)",
+            "value": 1
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(E_vs_H)",
+            "target": "Hypertrophic cardiomyopathy (HCM)(E_vs_H)",
+            "value": 8
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(E_vs_H)",
+            "target": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(G_vs_J)",
+            "value": 6
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(E_vs_H)",
+            "target": "Hypertrophic cardiomyopathy (HCM)(G_vs_J)",
+            "value": 5
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(E_vs_H)",
+            "target": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(G_vs_J)",
+            "value": 5
+        },
+        {
+            "source": "Hypertrophic cardiomyopathy (HCM)(E_vs_H)",
+            "target": "Hypertrophic cardiomyopathy (HCM)(G_vs_J)",
+            "value": 7
+        },
+        {
+            "source": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(G_vs_J)",
+            "target": "Hypertrophic cardiomyopathy (HCM)(G_vs_J)",
+            "value": 8
+        }
+    ],
+    "categories": [
+        {
+            "name": "A_vs_H"
+        },
+        {
+            "name": "A_vs_I"
+        },
+        {
+            "name": "E_vs_H"
+        },
+        {
+            "name": "G_vs_J"
+        }
+    ],
+    "title": "KEGG_2019_Mouse"
+}

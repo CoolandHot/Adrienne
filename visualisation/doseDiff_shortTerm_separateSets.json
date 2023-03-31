@@ -1,64 +1,64 @@
 {
     "nodes": [
         {
-            "id": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
+            "name": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_F)",
             "value": 12,
-            "group": "A_vs_F"
+            "category": "A_vs_F"
         },
         {
-            "id": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
+            "name": "Hypertrophic cardiomyopathy (HCM)(A_vs_F)",
             "value": 13,
-            "group": "A_vs_F"
+            "category": "A_vs_F"
         },
         {
-            "id": "Dilated cardiomyopathy (DCM)(A_vs_F)",
+            "name": "Dilated cardiomyopathy (DCM)(A_vs_F)",
             "value": 13,
-            "group": "A_vs_F"
+            "category": "A_vs_F"
         },
         {
-            "id": "Cardiac muscle contraction(A_vs_F)",
+            "name": "Cardiac muscle contraction(A_vs_F)",
             "value": 10,
-            "group": "A_vs_F"
+            "category": "A_vs_F"
         },
         {
-            "id": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
+            "name": "Hypertrophic cardiomyopathy (HCM)(A_vs_G)",
             "value": 14,
-            "group": "A_vs_G"
+            "category": "A_vs_G"
         },
         {
-            "id": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
+            "name": "Adrenergic signaling in cardiomyocytes(A_vs_G)",
             "value": 19,
-            "group": "A_vs_G"
+            "category": "A_vs_G"
         },
         {
-            "id": "Dilated cardiomyopathy (DCM)(A_vs_G)",
+            "name": "Dilated cardiomyopathy (DCM)(A_vs_G)",
             "value": 14,
-            "group": "A_vs_G"
+            "category": "A_vs_G"
         },
         {
-            "id": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
+            "name": "Arrhythmogenic right ventricular cardiomyopathy (ARVC)(A_vs_G)",
             "value": 12,
-            "group": "A_vs_G"
+            "category": "A_vs_G"
         },
         {
-            "id": "Vascular smooth muscle contraction(A_vs_G)",
+            "name": "Vascular smooth muscle contraction(A_vs_G)",
             "value": 17,
-            "group": "A_vs_G"
+            "category": "A_vs_G"
         },
         {
-            "id": "Insulin secretion(A_vs_G)",
+            "name": "Insulin secretion(A_vs_G)",
             "value": 12,
-            "group": "A_vs_G"
+            "category": "A_vs_G"
         },
         {
-            "id": "cAMP signaling pathway(A_vs_G)",
+            "name": "cAMP signaling pathway(A_vs_G)",
             "value": 21,
-            "group": "A_vs_G"
+            "category": "A_vs_G"
         },
         {
-            "id": "Cardiac muscle contraction(A_vs_G)",
+            "name": "Cardiac muscle contraction(A_vs_G)",
             "value": 11,
-            "group": "A_vs_G"
+            "category": "A_vs_G"
         }
     ],
     "links": [
@@ -393,7 +393,7 @@
             "value": 4
         }
     ],
-    "groups": [
+    "categories": [
         {
             "name": "A_vs_F"
         },

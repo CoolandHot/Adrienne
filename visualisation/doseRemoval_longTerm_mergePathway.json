@@ -1,0 +1,481 @@
+{
+    "nodes": [
+        {
+            "name": "AMPK signaling pathway",
+            "value": 1,
+            "category": "D_vs_J",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#5470c6"
+                        }
+                    ]
+                }
+            },
+            "proportion": "D_vs_J: 100.00%"
+        },
+        {
+            "name": "Adipocytokine signaling pathway",
+            "value": 1,
+            "category": "D_vs_J",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#5470c6"
+                        }
+                    ]
+                }
+            },
+            "proportion": "D_vs_J: 100.00%"
+        },
+        {
+            "name": "Cholesterol metabolism",
+            "value": 1,
+            "category": "D_vs_J",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#5470c6"
+                        }
+                    ]
+                }
+            },
+            "proportion": "D_vs_J: 100.00%"
+        },
+        {
+            "name": "ECM-receptor interaction",
+            "value": 1,
+            "category": "D_vs_J",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#5470c6"
+                        }
+                    ]
+                }
+            },
+            "proportion": "D_vs_J: 100.00%"
+        },
+        {
+            "name": "Fat digestion and absorption",
+            "value": 1,
+            "category": "D_vs_J",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#5470c6"
+                        }
+                    ]
+                }
+            },
+            "proportion": "D_vs_J: 100.00%"
+        },
+        {
+            "name": "Hematopoietic cell lineage",
+            "value": 1,
+            "category": "D_vs_J",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#5470c6"
+                        }
+                    ]
+                }
+            },
+            "proportion": "D_vs_J: 100.00%"
+        },
+        {
+            "name": "Insulin resistance",
+            "value": 1,
+            "category": "D_vs_J",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#5470c6"
+                        }
+                    ]
+                }
+            },
+            "proportion": "D_vs_J: 100.00%"
+        },
+        {
+            "name": "Malaria",
+            "value": 1,
+            "category": "D_vs_J",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#5470c6"
+                        }
+                    ]
+                }
+            },
+            "proportion": "D_vs_J: 100.00%"
+        },
+        {
+            "name": "PPAR signaling pathway",
+            "value": 1,
+            "category": "D_vs_J",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#5470c6"
+                        }
+                    ]
+                }
+            },
+            "proportion": "D_vs_J: 100.00%"
+        },
+        {
+            "name": "Phagosome",
+            "value": 1,
+            "category": "D_vs_J",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#5470c6"
+                        }
+                    ]
+                }
+            },
+            "proportion": "D_vs_J: 100.00%"
+        }
+    ],
+    "links": [
+        {
+            "source": "AMPK signaling pathway",
+            "target": "Adipocytokine signaling pathway",
+            "value": 1
+        },
+        {
+            "source": "AMPK signaling pathway",
+            "target": "Cholesterol metabolism",
+            "value": 1
+        },
+        {
+            "source": "AMPK signaling pathway",
+            "target": "ECM-receptor interaction",
+            "value": 1
+        },
+        {
+            "source": "AMPK signaling pathway",
+            "target": "Fat digestion and absorption",
+            "value": 1
+        },
+        {
+            "source": "AMPK signaling pathway",
+            "target": "Hematopoietic cell lineage",
+            "value": 1
+        },
+        {
+            "source": "AMPK signaling pathway",
+            "target": "Insulin resistance",
+            "value": 1
+        },
+        {
+            "source": "AMPK signaling pathway",
+            "target": "Malaria",
+            "value": 1
+        },
+        {
+            "source": "AMPK signaling pathway",
+            "target": "PPAR signaling pathway",
+            "value": 1
+        },
+        {
+            "source": "AMPK signaling pathway",
+            "target": "Phagosome",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway",
+            "target": "Cholesterol metabolism",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway",
+            "target": "ECM-receptor interaction",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway",
+            "target": "Fat digestion and absorption",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway",
+            "target": "Hematopoietic cell lineage",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway",
+            "target": "Insulin resistance",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway",
+            "target": "Malaria",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway",
+            "target": "PPAR signaling pathway",
+            "value": 1
+        },
+        {
+            "source": "Adipocytokine signaling pathway",
+            "target": "Phagosome",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism",
+            "target": "ECM-receptor interaction",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism",
+            "target": "Fat digestion and absorption",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism",
+            "target": "Hematopoietic cell lineage",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism",
+            "target": "Insulin resistance",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism",
+            "target": "Malaria",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism",
+            "target": "PPAR signaling pathway",
+            "value": 1
+        },
+        {
+            "source": "Cholesterol metabolism",
+            "target": "Phagosome",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction",
+            "target": "Fat digestion and absorption",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction",
+            "target": "Hematopoietic cell lineage",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction",
+            "target": "Insulin resistance",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction",
+            "target": "Malaria",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction",
+            "target": "PPAR signaling pathway",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction",
+            "target": "Phagosome",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption",
+            "target": "Hematopoietic cell lineage",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption",
+            "target": "Insulin resistance",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption",
+            "target": "Malaria",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption",
+            "target": "PPAR signaling pathway",
+            "value": 1
+        },
+        {
+            "source": "Fat digestion and absorption",
+            "target": "Phagosome",
+            "value": 1
+        },
+        {
+            "source": "Hematopoietic cell lineage",
+            "target": "Insulin resistance",
+            "value": 1
+        },
+        {
+            "source": "Hematopoietic cell lineage",
+            "target": "Malaria",
+            "value": 1
+        },
+        {
+            "source": "Hematopoietic cell lineage",
+            "target": "PPAR signaling pathway",
+            "value": 1
+        },
+        {
+            "source": "Hematopoietic cell lineage",
+            "target": "Phagosome",
+            "value": 1
+        },
+        {
+            "source": "Insulin resistance",
+            "target": "Malaria",
+            "value": 1
+        },
+        {
+            "source": "Insulin resistance",
+            "target": "PPAR signaling pathway",
+            "value": 1
+        },
+        {
+            "source": "Insulin resistance",
+            "target": "Phagosome",
+            "value": 1
+        },
+        {
+            "source": "Malaria",
+            "target": "PPAR signaling pathway",
+            "value": 1
+        },
+        {
+            "source": "Malaria",
+            "target": "Phagosome",
+            "value": 1
+        },
+        {
+            "source": "PPAR signaling pathway",
+            "target": "Phagosome",
+            "value": 1
+        }
+    ],
+    "categories": [
+        {
+            "name": "D_vs_J"
+        },
+        {
+            "name": "mix",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.3,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.3,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 0.6,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 0.6,
+                            "color": "#fac858"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#fac858"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "title": "KEGG_2019_Mouse"
+}

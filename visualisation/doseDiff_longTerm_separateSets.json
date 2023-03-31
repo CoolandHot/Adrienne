@@ -1,0 +1,58 @@
+{
+    "nodes": [
+        {
+            "name": "TNF signaling pathway(A_vs_B)",
+            "value": 3,
+            "category": "A_vs_B"
+        },
+        {
+            "name": "PPAR signaling pathway(A_vs_D)",
+            "value": 4,
+            "category": "A_vs_D"
+        },
+        {
+            "name": "TNF signaling pathway(A_vs_D)",
+            "value": 4,
+            "category": "A_vs_D"
+        },
+        {
+            "name": "ECM-receptor interaction(B_vs_C)",
+            "value": 7,
+            "category": "B_vs_C"
+        },
+        {
+            "name": "Protein digestion and absorption(B_vs_C)",
+            "value": 7,
+            "category": "B_vs_C"
+        }
+    ],
+    "links": [
+        {
+            "source": "TNF signaling pathway(A_vs_B)",
+            "target": "TNF signaling pathway(A_vs_D)",
+            "value": 2
+        },
+        {
+            "source": "PPAR signaling pathway(A_vs_D)",
+            "target": "ECM-receptor interaction(B_vs_C)",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction(B_vs_C)",
+            "target": "Protein digestion and absorption(B_vs_C)",
+            "value": 4
+        }
+    ],
+    "categories": [
+        {
+            "name": "A_vs_B"
+        },
+        {
+            "name": "A_vs_D"
+        },
+        {
+            "name": "B_vs_C"
+        }
+    ],
+    "title": "KEGG_2019_Mouse"
+}

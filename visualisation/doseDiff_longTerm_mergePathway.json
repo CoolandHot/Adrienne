@@ -1,0 +1,154 @@
+{
+    "nodes": [
+        {
+            "name": "ECM-receptor interaction",
+            "value": 7,
+            "category": "B_vs_C",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#fac858"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#fac858"
+                        }
+                    ]
+                }
+            },
+            "proportion": "B_vs_C: 100.00%"
+        },
+        {
+            "name": "PPAR signaling pathway",
+            "value": 4,
+            "category": "A_vs_D",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#91cc75"
+                        }
+                    ]
+                }
+            },
+            "proportion": "A_vs_D: 100.00%"
+        },
+        {
+            "name": "Protein digestion and absorption",
+            "value": 7,
+            "category": "B_vs_C",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#fac858"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#fac858"
+                        }
+                    ]
+                }
+            },
+            "proportion": "B_vs_C: 100.00%"
+        },
+        {
+            "name": "TNF signaling pathway",
+            "value": 5,
+            "category": "mix",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.429,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.429,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#91cc75"
+                        }
+                    ]
+                }
+            },
+            "proportion": "A_vs_B: 42.90%<br>A_vs_D: 57.10%"
+        }
+    ],
+    "links": [
+        {
+            "source": "ECM-receptor interaction",
+            "target": "PPAR signaling pathway",
+            "value": 1
+        },
+        {
+            "source": "ECM-receptor interaction",
+            "target": "Protein digestion and absorption",
+            "value": 4
+        }
+    ],
+    "categories": [
+        {
+            "name": "A_vs_B"
+        },
+        {
+            "name": "A_vs_D"
+        },
+        {
+            "name": "B_vs_C"
+        },
+        {
+            "name": "mix",
+            "itemStyle": {
+                "color": {
+                    "type": "linear",
+                    "colorStops": [
+                        {
+                            "offset": 0,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.3,
+                            "color": "#5470c6"
+                        },
+                        {
+                            "offset": 0.3,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 0.6,
+                            "color": "#91cc75"
+                        },
+                        {
+                            "offset": 0.6,
+                            "color": "#fac858"
+                        },
+                        {
+                            "offset": 1.0,
+                            "color": "#fac858"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "title": "KEGG_2019_Mouse"
+}

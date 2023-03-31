@@ -407,7 +407,7 @@ document.querySelector(".interrogation-group").addEventListener("click", event =
             document.querySelector("#csv_headers_q_value").value = "padj"
             document.querySelector("#csv_headers_id").value = "gene"
             document.querySelector("#csv_headers_log_FC").value = "log2FoldChange"
-            document.querySelector("#csv_headers_str").value = "gene,log2FoldChange,padj"
+            document.querySelector("#csv_headers_str").value = "gene,pvalue,log2FoldChange,padj"
             init_csv_headers()
         }
     }
@@ -425,6 +425,7 @@ const init_csv_headers = () => {
 }
 
 init_csv_headers()
+
 document.querySelector("#p_adjust_val")
     .addEventListener('change', e => p_adjust = parseFloat(e.target.value))
 document.querySelector("#csv_headers_q_value")

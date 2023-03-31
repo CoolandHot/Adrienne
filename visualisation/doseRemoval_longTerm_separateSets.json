@@ -1,54 +1,54 @@
 {
     "nodes": [
         {
-            "id": "Fat digestion and absorption(D_vs_J)",
+            "name": "Fat digestion and absorption(D_vs_J)",
             "value": 1,
-            "group": "D_vs_J"
+            "category": "D_vs_J"
         },
         {
-            "id": "Cholesterol metabolism(D_vs_J)",
+            "name": "Cholesterol metabolism(D_vs_J)",
             "value": 1,
-            "group": "D_vs_J"
+            "category": "D_vs_J"
         },
         {
-            "id": "Malaria(D_vs_J)",
+            "name": "Malaria(D_vs_J)",
             "value": 1,
-            "group": "D_vs_J"
+            "category": "D_vs_J"
         },
         {
-            "id": "Adipocytokine signaling pathway(D_vs_J)",
+            "name": "Adipocytokine signaling pathway(D_vs_J)",
             "value": 1,
-            "group": "D_vs_J"
+            "category": "D_vs_J"
         },
         {
-            "id": "ECM-receptor interaction(D_vs_J)",
+            "name": "ECM-receptor interaction(D_vs_J)",
             "value": 1,
-            "group": "D_vs_J"
+            "category": "D_vs_J"
         },
         {
-            "id": "PPAR signaling pathway(D_vs_J)",
+            "name": "PPAR signaling pathway(D_vs_J)",
             "value": 1,
-            "group": "D_vs_J"
+            "category": "D_vs_J"
         },
         {
-            "id": "Hematopoietic cell lineage(D_vs_J)",
+            "name": "Hematopoietic cell lineage(D_vs_J)",
             "value": 1,
-            "group": "D_vs_J"
+            "category": "D_vs_J"
         },
         {
-            "id": "Insulin resistance(D_vs_J)",
+            "name": "Insulin resistance(D_vs_J)",
             "value": 1,
-            "group": "D_vs_J"
+            "category": "D_vs_J"
         },
         {
-            "id": "AMPK signaling pathway(D_vs_J)",
+            "name": "AMPK signaling pathway(D_vs_J)",
             "value": 1,
-            "group": "D_vs_J"
+            "category": "D_vs_J"
         },
         {
-            "id": "Phagosome(D_vs_J)",
+            "name": "Phagosome(D_vs_J)",
             "value": 1,
-            "group": "D_vs_J"
+            "category": "D_vs_J"
         }
     ],
     "links": [
@@ -278,7 +278,7 @@
             "value": 1
         }
     ],
-    "groups": [
+    "categories": [
         {
             "name": "D_vs_J"
         }

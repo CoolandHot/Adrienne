@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="./css/pathway_main.css">
+</head>
+
+<body style="height: 99%; width: 99%; margin: 0">
+  <div id="panel" class="panelmask hidden">
+    <div class="panel-content">
+      <h3></h3>
+      <div id="small_container" style="height: 400px; width: 600px;"></div>
+    </div>
+  </div>
+  <div id="para-settings">
+    <div>
+      number of common genes threshod:
+      <label for="threshold_slider">20</label>
+      <input type="range" min="0" max="120" value="20" id="threshold_slider">
+    </div>
+    <div style="display: flex;">
+      switch to integrated nodes
+      <input type="checkbox" id="nodeMerge_switch" checked /><label for="nodeMerge_switch"></label>
+    </div>
+    <div>
+      <label for="filter_pathway">Check one pathway:</label>
+      <input list="pathway_names" type="text" id="filter_pathway" placeholder="pathway name to filter" />
+      <datalist id="pathway_names"></datalist>
+    </div>
+  </div>
+
+  <div id="container" style="height: 100%"></div>
+
+  <div class="json-path-for-charts">
+    <label for="merge-node-pathway">Merge Node Pathway JSON File:</label>
+    <input type="text" id="merge-node-pathway" placeholder="Enter file path"
+      value="./doseDiff_longTerm_mergePathway.json">
+    <br>
+    <label for="detail-pathway">Detail Pathway JSON File:</label>
+    <input type="text" id="detail-pathway" placeholder="Enter file path" value="./doseDiff_longTerm_separateSets.json">
+  </div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5"></script>
+  <script src="./js/pathway_main.js"></script>
+</body>
+
+</html>
